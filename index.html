@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>armtechstore.jp 収益シミュレーター</title>
+<style>
+  .viz-root {
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --series-sales: #2a78d6;
+    --series-gp: #1baf7a;
+    --accent-neg: #d03b3b;
+    --card-border: rgba(11,11,11,0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    .viz-root {
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --series-sales: #3987e5;
+      --series-gp: #199e70;
+      --accent-neg: #e66767;
+      --card-border: rgba(255,255,255,0.10);
+    }
+  }
+  * { box-sizing: border-box; }
+  body.viz-root {
+    margin: 0; padding: 24px;
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+    background: var(--page); color: var(--text-primary);
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 20px; }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: flex-end;
+    background: var(--surface-1); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 14px 16px; margin-bottom: 16px;
+  }
+  .seg { display: flex; gap: 0; border: 1px solid var(--card-border); border-radius: 8px; overflow: hidden; }
+  .seg button {
+    font: inherit; font-size: 13px; padding: 6px 14px; border: none; cursor: pointer;
+    background: transparent; color: var(--text-secondary);
+  }
+  .seg button.on { background: var(--series-sales); color: #fff; font-weight: 600; }
+  .ctl { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: var(--text-secondary); }
+  .ctl output { font-weight: 600; color: var(--text-primary); font-size: 12px; }
+  .ctl input[type=range] { width: 130px; accent-color: var(--series-sales); }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .tile {
+    background: var(--surface-1); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 12px 16px;
+  }
+  .tile .label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+  .tile .value { font-size: 26px; font-weight: 600; }
+  .tile .value.neg { color: var(--accent-neg); }
+  .tile .note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  .card {
+    background: var(--surface-1); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 16px; margin-bottom: 16px; position: relative;
+  }
+  .card h2 { font-size: 14px; margin: 0 0 2px; }
+  .card .desc { font-size: 12px; color: var(--text-muted); margin: 0 0 10px; }
+  .legend { display: flex; gap: 18px; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; flex-wrap: wrap; }
+  .legend .key { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .swatch { width: 18px; height: 0; border-top: 3px solid; border-radius: 2px; }
+  svg { width: 100%; height: auto; display: block; }
+  .tooltip {
+    position: absolute; pointer-events: none; display: none; z-index: 10;
+    background: var(--surface-1); border: 1px solid var(--card-border); border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18); padding: 8px 12px; font-size: 12px; min-width: 170px;
+  }
+  .tooltip .t-month { color: var(--text-muted); margin-bottom: 4px; }
+  .tooltip .t-row { display: flex; align-items: center; gap: 8px; margin: 2px 0; }
+  .tooltip .t-key { width: 14px; height: 0; border-top: 3px solid; border-radius: 2px; flex: none; }
+  .tooltip .t-val { font-weight: 700; margin-left: auto; font-variant-numeric: tabular-nums; }
+  .tooltip .t-name { color: var(--text-secondary); }
+
+  details { margin-bottom: 16px; }
+  summary { cursor: pointer; font-size: 13px; color: var(--text-secondary); padding: 4px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; background: var(--surface-1); }
+  th, td { border: 1px solid var(--grid); padding: 5px 9px; text-align: right; font-variant-numeric: tabular-nums; }
+  th { background: var(--page); color: var(--text-secondary); font-weight: 600; }
+  td:first-child, th:first-child, td:nth-child(2), th:nth-child(2) { text-align: left; }
+  .neg-cell { color: var(--accent-neg); }
+  .foot { font-size: 11px; color: var(--text-muted); line-height: 1.7; }
+</style>
+</head>
+<body class="viz-root">
+<div class="wrap">
+  <h1>armtechstore.jp 収益シミュレーター</h1>
+  <p class="sub">根拠: 2025/07〜2026/06 実績12ヶ月（Fulmo月次レポート）。前提を動かすと全体が再計算されます。既定値は「標準」シナリオ。</p>
+
+  <div class="controls" id="controls">
+    <div class="ctl">シナリオ
+      <div class="seg" id="presets">
+        <button data-p="hoshu">保守</button><button data-p="hyojun" class="on">標準</button><button data-p="tsuyoki">強気</button>
+      </div>
+    </div>
+    <label class="ctl">訪問数成長率 2026下期<output id="o_g1"></output><input type="range" id="g1" min="0" max="15" step="0.5"></label>
+    <label class="ctl">訪問数成長率 2027上期<output id="o_g2"></output><input type="range" id="g2" min="0" max="15" step="0.5"></label>
+    <label class="ctl">CVR 開始値<output id="o_c0"></output><input type="range" id="c0" min="0.04" max="0.15" step="0.005"></label>
+    <label class="ctl">CVR 12ヶ月後<output id="o_c1"></output><input type="range" id="c1" min="0.04" max="0.20" step="0.005"></label>
+    <label class="ctl">平均購入単価<output id="o_aov"></output><input type="range" id="aov" min="8000" max="24000" step="500"></label>
+    <label class="ctl">粗利率<output id="o_gpr"></output><input type="range" id="gpr" min="35" max="60" step="1"></label>
+    <label class="ctl">月額費用<output id="o_fee"></output><input type="range" id="fee" min="0" max="110000" step="5000"></label>
+  </div>
+
+  <div class="tiles">
+    <div class="tile"><div class="label">予測12ヶ月 累計売上</div><div class="value" id="t_sales"></div><div class="note">2026/07〜2027/06</div></div>
+    <div class="tile"><div class="label">予測12ヶ月 累計粗利</div><div class="value" id="t_gp"></div><div class="note" id="t_gp_note"></div></div>
+    <div class="tile"><div class="label">粗利が月額費用を上回る月</div><div class="value" id="t_be"></div><div class="note">損益分岐（単月）</div></div>
+    <div class="tile"><div class="label">累計（粗利 − 月額費用）</div><div class="value" id="t_net"></div><div class="note">予測12ヶ月合計</div></div>
+  </div>
+
+  <div class="card" id="chartCard">
+    <h2>売上・粗利の実績と予測</h2>
+    <p class="desc">実線 = 実績（2025/07〜2026/06） / 破線 = 予測（2026/07〜2027/06） / 灰色の水平線 = 月額費用</p>
+    <div class="legend">
+      <span class="key"><span class="swatch" style="border-color:var(--series-sales)"></span>売上</span>
+      <span class="key"><span class="swatch" style="border-color:var(--series-gp)"></span>粗利</span>
+    </div>
+    <svg id="chart" viewBox="0 0 980 380" role="img" aria-label="売上・粗利の実績と予測の折れ線グラフ"></svg>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+
+  <details>
+    <summary>テーブル表示（全数値）</summary>
+    <table id="tbl"></table>
+  </details>
+
+  <p class="foot">
+    ※月間注文数が0〜5件と少数のため、単月実績は期待値に対して大きくブレます（単月±50%程度）。6〜12ヶ月累計での評価を推奨します。<br>
+    ※丸め処理はExcel版「armtechstore_収益シミュレーション_改訂版.xlsx」と同一（訪問数=整数、売上・粗利=円単位）。前提の導出根拠は同ファイル「前提条件・根拠」シート参照。<br>
+    ※参考: 月額固定の代替として「粗利レベニューシェア50%」の場合のクライアント手残り = 累計粗利の50%（<span id="rs50"></span>）。
+  </p>
+</div>
+
+<script>
+"use strict";
+// ---------- 実績データ（2025/07〜2026/06） ----------
+const ACT_MONTHS = ["2025/07","2025/08","2025/09","2025/10","2025/11","2025/12","2026/01","2026/02","2026/03","2026/04","2026/05","2026/06"];
+const ACT_VISITS = [112,197,597,1153,2015,3111,5241,5108,7363,6053,5780,5797];
+const ACT_ORDERS = [0,0,3,1,0,0,4,3,3,5,3,5];
+const ACT_SALES  = [0,0,42780,9880,0,0,54220,26160,23890,115980,36060,72840];
+const ACT_GP     = [0,0,20390,3940,0,0,28630,13080,9223,61116,17530,33200];
+const FC_MONTHS  = ["2026/07","2026/08","2026/09","2026/10","2026/11","2026/12","2027/01","2027/02","2027/03","2027/04","2027/05","2027/06"];
+const BASE_VISITS = (6053+5780+5797)/3;
+
+// ---------- シナリオ ----------
+const PRESETS = {
+  hoshu:   { g1: 2,  g2: 2,  c0: 0.065, c1: 0.065, aov: 13000, gpr: 47, fee: 55000 },
+  hyojun:  { g1: 5,  g2: 3,  c0: 0.070, c1: 0.095, aov: 14000, gpr: 49, fee: 55000 },
+  tsuyoki: { g1: 8,  g2: 5,  c0: 0.070, c1: 0.120, aov: 14500, gpr: 50, fee: 55000 },
+};
+
+const $ = id => document.getElementById(id);
+const yen = v => "¥" + Math.round(v).toLocaleString("ja-JP");
+const ids = ["g1","g2","c0","c1","aov","gpr","fee"];
+
+function params() {
+  return {
+    g1: +$("g1").value/100, g2: +$("g2").value/100,
+    c0: +$("c0").value/100, c1: +$("c1").value/100,
+    aov: +$("aov").value, gpr: +$("gpr").value/100, fee: +$("fee").value,
+  };
+}
+
+// Excel版と同一の丸め
+function forecast(p) {
+  const rows = []; let v = BASE_VISITS;
+  for (let i = 1; i <= 12; i++) {
+    v = Math.round(v * (1 + (i <= 6 ? p.g1 : p.g2)));
+    const cvr = Math.round((p.c0 + (p.c1 - p.c0) * i / 12) * 1e7) / 1e7;
+    const orders = v * cvr;
+    const sales = Math.round(orders * p.aov);
+    const gp = Math.round(sales * p.gpr);
+    rows.push({ month: FC_MONTHS[i-1], visits: v, cvr, orders, sales, gp, net: gp - p.fee });
+  }
+  return rows;
+}
+
+// ---------- 描画 ----------
+const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
+const NS = "http://www.w3.org/2000/svg";
+function el(name, attrs, parent) {
+  const e = document.createElementNS(NS, name);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+const M = { l: 66, r: 96, t: 14, b: 30 }, W = 980, H = 380;
+const PW = W - M.l - M.r, PH = H - M.t - M.b;
+let state = { fc: [], p: null };
+
+function niceMax(v) {
+  const pow = Math.pow(10, Math.floor(Math.log10(v)));
+  for (const m of [1, 1.2, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]) if (m * pow >= v) return m * pow;
+  return 10 * pow;
+}
+
+function render() {
+  const p = params(); state.p = p;
+  const fc = forecast(p); state.fc = fc;
+
+  // 前提の表示
+  $("o_g1").textContent = "+" + (+$("g1").value) + "%/月";
+  $("o_g2").textContent = "+" + (+$("g2").value) + "%/月";
+  $("o_c0").textContent = (+$("c0").value).toFixed(3) + "%";
+  $("o_c1").textContent = (+$("c1").value).toFixed(3) + "%";
+  $("o_aov").textContent = yen(p.aov);
+  $("o_gpr").textContent = $("gpr").value + "%";
+  $("o_fee").textContent = yen(p.fee) + "/月";
+
+  // タイル
+  const tSales = fc.reduce((a, r) => a + r.sales, 0);
+  const tGp = fc.reduce((a, r) => a + r.gp, 0);
+  const tNet = tGp - p.fee * 12;
+  const be = fc.find(r => r.gp > p.fee);
+  $("t_sales").textContent = yen(tSales);
+  $("t_gp").textContent = yen(tGp);
+  $("t_gp_note").textContent = "粗利率 " + $("gpr").value + "% / 実績49.0%";
+  $("t_be").textContent = be ? be.month : "期間内なし";
+  $("t_net").textContent = (tNet >= 0 ? "+" : "−") + "¥" + Math.abs(Math.round(tNet)).toLocaleString("ja-JP");
+  $("t_net").classList.toggle("neg", tNet < 0);
+  $("rs50").textContent = "現在の前提で " + yen(tGp * 0.5);
+
+  drawChart(fc, p);
+  drawTable(fc, p);
+}
+
+function drawChart(fc, p) {
+  const svg = $("chart");
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+  const months = ACT_MONTHS.concat(fc.map(r => r.month));
+  const sales = ACT_SALES.concat(fc.map(r => r.sales));
+  const gps = ACT_GP.concat(fc.map(r => r.gp));
+  const yMax = niceMax(Math.max(...sales, ...gps, p.fee) * 1.08);
+  const x = i => M.l + PW * i / (months.length - 1);
+  const y = v => M.t + PH * (1 - v / yMax);
+
+  // グリッド + Y軸
+  const ticks = 5;
+  for (let t = 0; t <= ticks; t++) {
+    const v = yMax * t / ticks, yy = y(v);
+    el("line", { x1: M.l, x2: W - M.r, y1: yy, y2: yy, stroke: t === 0 ? css("--baseline") : css("--grid"), "stroke-width": 1 }, svg);
+    const lb = el("text", { x: M.l - 8, y: yy + 4, "text-anchor": "end", "font-size": 11, fill: css("--text-muted") }, svg);
+    lb.textContent = v.toLocaleString("ja-JP");
+  }
+  // X軸ラベル（3ヶ月ごと）
+  months.forEach((m, i) => {
+    if (i % 3 !== 0 && i !== months.length - 1) return;
+    const lb = el("text", { x: x(i), y: H - 8, "text-anchor": "middle", "font-size": 10.5, fill: css("--text-muted") }, svg);
+    lb.textContent = m;
+  });
+  // 実績/予測の境界
+  const bx = x(11);
+  el("line", { x1: bx, x2: bx, y1: M.t, y2: M.t + PH, stroke: css("--grid"), "stroke-width": 1 }, svg);
+  const bl = el("text", { x: bx + 4, y: M.t + 12, "font-size": 10.5, fill: css("--text-muted") }, svg);
+  bl.textContent = "予測→";
+
+  // 月額費用ライン
+  if (p.fee > 0) {
+    el("line", { x1: M.l, x2: W - M.r, y1: y(p.fee), y2: y(p.fee), stroke: css("--text-muted"), "stroke-width": 1 }, svg);
+    const fl = el("text", { x: W - M.r + 6, y: y(p.fee) + 4, "font-size": 10.5, fill: css("--text-muted") }, svg);
+    fl.textContent = "月額費用";
+  }
+
+  // 系列
+  const path = (data, from, to, color, dash) => {
+    let d = "";
+    for (let i = from; i <= to; i++) d += (i === from ? "M" : "L") + x(i).toFixed(1) + "," + y(data[i]).toFixed(1);
+    const a = { d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" };
+    if (dash) a["stroke-dasharray"] = "6 4";
+    el("path", a, svg);
+  };
+  const cSales = css("--series-sales"), cGp = css("--series-gp");
+  path(sales, 0, 11, cSales, false); path(sales, 11, 23, cSales, true);
+  path(gps, 0, 11, cGp, false); path(gps, 11, 23, cGp, true);
+
+  // 終端ドット + 直接ラベル（値はテキストトークン色、識別は隣のマーク）
+  [[sales, cSales, "売上"], [gps, cGp, "粗利"]].forEach(([data, color, name]) => {
+    el("circle", { cx: x(23), cy: y(data[23]), r: 4.5, fill: color, stroke: css("--surface-1"), "stroke-width": 2 }, svg);
+    const t = el("text", { x: x(23) + 9, y: y(data[23]) + 4, "font-size": 11.5, "font-weight": 700, fill: css("--text-primary") }, svg);
+    t.textContent = name + " " + yen(data[23]);
+  });
+
+  // ホバー層（クロスヘア + ツールチップ）
+  const hover = el("rect", { x: M.l, y: M.t, width: PW, height: PH, fill: "transparent" }, svg);
+  const cross = el("line", { x1: 0, x2: 0, y1: M.t, y2: M.t + PH, stroke: css("--baseline"), "stroke-width": 1, visibility: "hidden" }, svg);
+  const dotS = el("circle", { r: 4.5, fill: cSales, stroke: css("--surface-1"), "stroke-width": 2, visibility: "hidden" }, svg);
+  const dotG = el("circle", { r: 4.5, fill: cGp, stroke: css("--surface-1"), "stroke-width": 2, visibility: "hidden" }, svg);
+  const tip = $("tooltip");
+
+  const show = (clientX, clientY) => {
+    const rect = svg.getBoundingClientRect();
+    const sx = (clientX - rect.left) * W / rect.width;
+    let i = Math.round((sx - M.l) / PW * (months.length - 1));
+    i = Math.max(0, Math.min(months.length - 1, i));
+    const xx = x(i);
+    cross.setAttribute("x1", xx); cross.setAttribute("x2", xx); cross.setAttribute("visibility", "visible");
+    dotS.setAttribute("cx", xx); dotS.setAttribute("cy", y(sales[i])); dotS.setAttribute("visibility", "visible");
+    dotG.setAttribute("cx", xx); dotG.setAttribute("cy", y(gps[i])); dotG.setAttribute("visibility", "visible");
+
+    while (tip.firstChild) tip.removeChild(tip.firstChild);
+    const mo = document.createElement("div"); mo.className = "t-month";
+    mo.textContent = months[i] + (i < 12 ? "（実績）" : "（予測）");
+    tip.appendChild(mo);
+    const visits = i < 12 ? ACT_VISITS[i] : fc[i-12].visits;
+    const orders = i < 12 ? ACT_ORDERS[i] : fc[i-12].orders;
+    [["売上", sales[i], cSales], ["粗利", gps[i], cGp],
+     ["訪問数", visits, null], ["注文数", orders, null]].forEach(([n, v, c]) => {
+      const row = document.createElement("div"); row.className = "t-row";
+      const k = document.createElement("span"); k.className = "t-key";
+      k.style.borderColor = c || "transparent"; row.appendChild(k);
+      const nm = document.createElement("span"); nm.className = "t-name"; nm.textContent = n; row.appendChild(nm);
+      const vv = document.createElement("span"); vv.className = "t-val";
+      vv.textContent = n === "訪問数" ? Math.round(v).toLocaleString("ja-JP")
+                     : n === "注文数" ? (i < 12 ? v : v.toFixed(1)) + "件" : yen(v);
+      row.appendChild(vv); tip.appendChild(row);
+    });
+    const card = $("chartCard").getBoundingClientRect();
+    tip.style.display = "block";
+    const left = clientX - card.left + 16, maxL = card.width - tip.offsetWidth - 8;
+    tip.style.left = Math.min(left, maxL) + "px";
+    tip.style.top = (clientY - card.top - 10) + "px";
+  };
+  const hide = () => {
+    cross.setAttribute("visibility", "hidden");
+    dotS.setAttribute("visibility", "hidden"); dotG.setAttribute("visibility", "hidden");
+    tip.style.display = "none";
+  };
+  hover.addEventListener("pointermove", e => show(e.clientX, e.clientY));
+  hover.addEventListener("pointerleave", hide);
+}
+
+function drawTable(fc, p) {
+  const tbl = $("tbl");
+  while (tbl.firstChild) tbl.removeChild(tbl.firstChild);
+  const tr = document.createElement("tr");
+  ["年月","区分","サイト訪問数","CVR","注文数","平均単価","売上","粗利","粗利−月額費用","累計（粗利−費用）"].forEach(h => {
+    const th = document.createElement("th"); th.textContent = h; tr.appendChild(th);
+  });
+  tbl.appendChild(tr);
+  let cum = 0;
+  const addRow = (m, kind, visits, cvr, orders, aov, sales, gp, fee, isFc) => {
+    const net = gp - fee; if (isFc) cum += net;
+    const cells = [m, kind, Math.round(visits).toLocaleString("ja-JP"),
+      cvr == null ? "—" : (cvr*100).toFixed(4) + "%",
+      typeof orders === "number" && isFc ? orders.toFixed(1) : orders,
+      aov == null ? "—" : Math.round(aov).toLocaleString("ja-JP"),
+      sales.toLocaleString("ja-JP"), gp.toLocaleString("ja-JP"),
+      net.toLocaleString("ja-JP"), isFc ? cum.toLocaleString("ja-JP") : "—"];
+    const r = document.createElement("tr");
+    cells.forEach((c, j) => {
+      const td = document.createElement("td"); td.textContent = String(c);
+      if ((j === 8 && net < 0) || (j === 9 && isFc && cum < 0)) td.className = "neg-cell";
+      r.appendChild(td);
+    });
+    tbl.appendChild(r);
+  };
+  ACT_MONTHS.forEach((m, i) => addRow(m, "実績", ACT_VISITS[i],
+    ACT_ORDERS[i] ? ACT_ORDERS[i]/ACT_VISITS[i] : null, ACT_ORDERS[i],
+    ACT_ORDERS[i] ? ACT_SALES[i]/ACT_ORDERS[i] : null, ACT_SALES[i], ACT_GP[i], 0, false));
+  fc.forEach(r => addRow(r.month, "予測", r.visits, r.cvr, r.orders, p.aov, r.sales, r.gp, p.fee, true));
+}
+
+// ---------- 初期化 ----------
+function applyPreset(name) {
+  const p = PRESETS[name];
+  $("g1").value = p.g1; $("g2").value = p.g2;
+  $("c0").value = p.c0; $("c1").value = p.c1;
+  $("aov").value = p.aov; $("gpr").value = p.gpr; $("fee").value = p.fee;
+  document.querySelectorAll("#presets button").forEach(b => b.classList.toggle("on", b.dataset.p === name));
+  render();
+}
+document.querySelectorAll("#presets button").forEach(b =>
+  b.addEventListener("click", () => applyPreset(b.dataset.p)));
+ids.forEach(id => $(id).addEventListener("input", () => {
+  document.querySelectorAll("#presets button").forEach(b => b.classList.remove("on"));
+  render();
+}));
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+applyPreset("hyojun");
+</script>
+</body>
+</html>
