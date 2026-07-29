@@ -1,0 +1,48 @@
+# nureoff ブランドパック（機械可読設定）
+# フォーム回答日: 2026-07-29
+id: nureoff
+store:
+  name: nureoff
+  url: https://www.nureoff.jp/
+  one_liner: レインブーツだけの専門店
+
+audience:
+  primary: 女性中心（20〜40代）
+  secondary: 家族層
+  life_stage: 通勤・通学・子育て世代
+  use_cases:
+    - 通勤
+    - 通学
+    - 普段使い
+    - アウトドア
+
+tone:
+  keywords:
+    - 実用的
+    - シンプル
+
+selling_points:
+  - 様々な用途で着用しやすい
+  - おしゃれなレインブーツもある
+  - 機能性が高い
+
+post_angles:
+  source: claude-proposed   # フォーム空欄のためClaude Code提案。詳細は post-angles.md
+  list:
+    - 使うシーン別（通勤／通学／子どもの送り迎え／アウトドア）
+    - 失敗しない選び方（丈・サイズ・素材）
+    - タイプ別比較（ロング／ミドル／ショート・サイドゴア）
+    - お悩み解決（蒸れる・重い・服に合わない・脱ぎ履きしづらい）
+    - 梅雨・台風・雪など天気トリガー型
+    - 雨の日コーデ（レインブーツを主役にした着回し）
+
+products:
+  featured: null        # 未指定
+  excluded: []          # 未指定
+  price_range: null     # 未指定（例: ¥2,000〜12,000 の形式で記入）
+  hero_price_band: null # 未指定
+
+display:
+  logo_text: nureoff
+  product_noun: レインブーツ
+  save_cta: 保存して見返してね   # 既定値（フォーム空欄）
