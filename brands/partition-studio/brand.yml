@@ -1,0 +1,45 @@
+# partition-studio ブランドパック（機械可読設定）
+# フォーム回答日: 2026-07-30
+id: partition-studio
+store:
+  name: partition-studio
+  url: https://www.partition-studio.jp/
+  one_liner: パーテーションだけの専門店
+
+audience:
+  primary: 老若男女問わず（オフィスの総務・施設担当、店舗・イベント運営者、個人まで幅広く）
+  secondary: null
+  use_cases:
+    - 間仕切り（オフィス）
+    - 間仕切り（屋外）
+
+tone:
+  keywords:
+    - 実用的
+    - シンプル
+
+selling_points:
+  - 様々な場面で活用できる
+  - 豊富なサイズ、素材
+  - 機能性の高さ
+
+post_angles:
+  source: claude-proposed   # フォーム空欄のためClaude Code提案。詳細は post-angles.md
+  list:
+    - 使うシーン別（オフィス／受付・待合／店舗・飲食／屋外イベント）
+    - 失敗しない選び方（サイズ・素材・設置方法）
+    - タイプ別比較（自立式／連結式／キャスター付き・屋内用 vs 屋外用）
+    - お悩み解決（視線・音・風・レイアウト変更のしづらさ）
+    - 素材別の特徴紹介（ポリカーボネート・木製・布・アルミ等）
+    - ビフォーアフター（設置前後のレイアウト改善）
+
+products:
+  featured: null        # 未指定
+  excluded: []          # 未指定
+  price_range: null     # 未指定（例: ¥5,000〜50,000 の形式で記入）
+  hero_price_band: "¥10,000"  # 主役にしたい価格帯
+
+display:
+  logo_text: partition-studio
+  product_noun: パーテーション
+  save_cta: 保存して見返してね   # 既定値（フォーム空欄）
