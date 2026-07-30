@@ -1,5 +1,5 @@
 # nureoff ブランドパック（機械可読設定）
-# フォーム回答日: 2026-07-29
+# フォーム回答日: 2026-07-30（更新）
 id: nureoff
 store:
   name: nureoff
@@ -23,8 +23,8 @@ tone:
 
 selling_points:
   - 様々な用途で着用しやすい
-  - おしゃれなレインブーツもある
-  - 機能性が高い
+  - おしゃれなデザイン
+  - 機能性の高さ
 
 post_angles:
   source: claude-proposed   # フォーム空欄のためClaude Code提案。詳細は post-angles.md
@@ -40,7 +40,7 @@ products:
   featured: null        # 未指定
   excluded: []          # 未指定
   price_range: null     # 未指定（例: ¥2,000〜12,000 の形式で記入）
-  hero_price_band: null # 未指定
+  hero_price_band: "¥3,200"  # 主役にしたい価格帯
 
 display:
   logo_text: nureoff
