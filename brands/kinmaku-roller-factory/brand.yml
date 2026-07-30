@@ -1,0 +1,46 @@
+# kinmaku-roller-factory ブランドパック（機械可読設定）
+# フォーム回答日: 2026-07-30
+id: kinmaku-roller-factory
+store:
+  name: kinmaku-roller-factory
+  url: https://www.kinmaku-roller-factory.jp/
+  one_liner: 筋膜ローラーだけの専門店
+
+audience:
+  primary: 女性中心（20代後半〜40代前半）
+  secondary: null
+  use_cases:
+    - むくみ解消
+    - 筋膜やコリをほぐす
+
+tone:
+  keywords:
+    - カラフル
+    - 女性らしい
+
+selling_points:
+  - 様々な部位に使用できる
+  - 豊富な品揃え
+  - 機能性の高さ
+
+post_angles:
+  source: claude-proposed   # フォーム空欄のためClaude Code提案。詳細は post-angles.md
+  list:
+    - 部位別の使い方（ふくらはぎ／太もも／背中・肩まわり／足裏）
+    - 使うタイミング別（朝／デスクワークの合間／お風呂上がり／運動後）
+    - 失敗しない選び方（硬さ・凹凸・サイズ）
+    - タイプ別比較（スティック／ボール／電動・初心者向け vs しっかり派）
+    - お悩み解決（夕方のむくみ・肩こり・脚の張り）
+    - 続けるコツ（1日3分ルーティン・ながらケア）
+
+products:
+  featured: null        # 未指定
+  excluded: []          # 未指定
+  price_range: null     # 未指定
+  hero_price_band: null # こだわらない（参考: 市場価格は約¥2,000）
+  hero_price_note: 市場価格は約¥2,000だが主役価格帯にはこだわらない
+
+display:
+  logo_text: kinmaku-roller-factory
+  product_noun: 筋膜ローラー
+  save_cta: 保存して見返してね   # 既定値（フォーム空欄）
