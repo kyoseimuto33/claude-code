@@ -1,0 +1,46 @@
+# os-store ブランドパック（機械可読設定）
+# フォーム回答日: 2026-07-30
+id: os-store
+store:
+  name: os-store
+  url: https://www.os-store.jp
+  one_liner: 手帳型スマホケースだけの専門店
+
+audience:
+  primary: 男女両方（やや女性寄り）30代〜50代
+  profile: 会社員・主婦・フリーランスなど、日常的にスマホを実用重視で使う層。キャッシュレス決済・ICカード利用が多く、荷物を減らしたいライフスタイル
+  use_cases:
+    - スマホを保護
+    - ケースに機能性を持たせたい（カード収納・スタンドなど）
+
+tone:
+  keywords:
+    - 落ち着いた
+    - 女性らしい
+
+selling_points:
+  - 様々なデザインを取り揃えている
+  - 豊富な品揃え
+  - 機種別に商品を探すことができる
+
+post_angles:
+  source: claude-proposed   # フォーム空欄のためClaude Code提案。詳細は post-angles.md
+  list:
+    - 身軽に出かける提案（ケース1つでお財布いらず・カード収納活用）
+    - 失敗しない選び方（ベルトの有無・カード枚数・素材）
+    - デザインテイスト別紹介（大人シンプル／花柄・くすみカラー／レザー調）
+    - お悩み解決（画面割れ・カードの持ち歩き・動画視聴スタンド・手帳型は分厚い？）
+    - 機種別特集（iPhone新機種・Android人気機種の対応ケース）
+    - 買い替えタイミング（機種変更・ケースのへたり・季節の気分転換）
+
+products:
+  featured: null        # 未指定
+  excluded: []          # 未指定
+  price_range: null     # 未指定
+  hero_price_band: null # こだわらない（参考: 市場価格は約¥2,000）
+  hero_price_note: 市場価格は約¥2,000だが主役価格帯にはこだわらない
+
+display:
+  logo_text: os-store
+  product_noun: 手帳型スマホケース
+  save_cta: 保存して見返してね   # 既定値（フォーム空欄）
