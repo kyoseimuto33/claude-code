@@ -1,0 +1,11 @@
+{
+  "enabledMcpjsonServers": [
+    "playwright"
+  ],
+  "permissions": {
+    "allow": [
+      "mcp__playwright"
+    ]
+  },
+  "enableAllProjectMcpServers": true
+}
