@@ -54,3 +54,22 @@ ECサイト [armtechstore.jp](https://www.armtechstore.jp) の収益シミュレ
 月間注文数が0〜5件と少数のため、単月のCVR実績は0.041〜0.086%の範囲で大きく変動します。
 本モデルは「単月の的中」ではなく「6〜12ヶ月累計の中心推計」として設計しており、
 四半期ごとに実績でパラメータを更新することを推奨します。季節性は実績1年分では分離不能のため未考慮です。
+
+---
+
+# CX 月次活動報告の自動作成（Claude Code スキル）
+
+全社会向けのCX月次報告を「調査 → 整理 → Fulmoカラーのスライド」まで同じ品質で作るための環境です。
+このリポジトリで Claude Code を開き、`/cx-monthly-report` と入力するか「10月のCX活動を全社会向けにまとめて」と頼むと起動します。
+
+| パス | 役割 |
+|---|---|
+| `.claude/skills/cx-monthly-report/SKILL.md` | 手順書（条件確認 → 並列調査 → チャットで整理 → 項目確定 → 数値の裏取り → 生成 → QA → 引き渡し） |
+| `.claude/skills/cx-monthly-report/references/` | デザイン規約・文章ルール・調査手順・FIX版（2026年9月）から学んだこと |
+| `.claude/skills/cx-monthly-report/scripts/build_deck.py` | `content.json` → Slidesアーティファクト用ファイルを生成（デザイン値はここの定数で一元管理） |
+| `.claude/skills/cx-monthly-report/scripts/check_deck.py` | 文字サイズ・白背景・1枚1メッセージ・⇒次の打ち手・出典の有無を機械チェック |
+| `.claude/skills/cx-monthly-report/examples/content.example.json` | スライド内容のひな形（6種類のスライド型） |
+| `.claude/agents/cx-report-researcher.md` | 調査サブエージェント（Slack担当・Drive担当を並列起動。読み取りのみ） |
+| `.claude/agents/cx-deck-reviewer.md` | レビューサブエージェント（事実の裏付け・機密混入・読みやすさを確認） |
+
+このリポジトリは公開設定のため、顧客名・金額・シートIDなどの社内データは含めていません。実データは実行時にSlack・Driveから取得します。
