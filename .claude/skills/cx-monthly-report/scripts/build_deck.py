@@ -106,7 +106,7 @@ def t_cover(s, logo):
 
 def t_kpi_chart(s):
     ex, ch = s["explain"], s["chart"]
-    ymin, ymax, hmax = ch.get("ymin", 85), ch.get("ymax", 100), 270
+    ymin, ymax, hmax = ch.get("ymin", 85), ch.get("ymax", 100), 250
     series = ch["series"]
     hl = ch.get("highlight", series[-1][0])
     cols, labs = [], []
@@ -177,13 +177,13 @@ def t_before_after_kpi(s):
                 f'{p(text, extra="flex:1")}</div>')
     effects = "".join(tag(e, "blue") for e in s.get("effects", []))
     return f'''<div style="flex:1;display:flex;gap:40px">
-<div style="flex:3;display:flex;flex-direction:column;justify-content:center;gap:18px">
+<div style="flex:4;display:flex;flex-direction:column;justify-content:center;gap:18px">
 {row(s['before']['label'], s['before']['text'], False)}
 <x-shape kind="arrow-down" style="width:44px;height:44px;background:{ACC};align-self:center"></x-shape>
 {row(s['after']['label'], s['after']['text'], True)}
 <div style="display:flex;gap:16px">{effects}</div>
 </div>
-<div style="flex:2;display:flex;flex-direction:column;justify-content:center;gap:18px;background:{TINT};border-radius:16px;padding:44px">
+<div style="flex:3;display:flex;flex-direction:column;justify-content:center;gap:18px;background:{TINT};border-radius:16px;padding:44px">
 {tag(k['status']) if k.get('status') else ''}
 {p(k['label'], FS['body'], SUB, 700)}
 <p style="font-size:{FS['kpi']}px;font-weight:700;line-height:1.15;color:{ACC}">{esc(k['value'])}</p>
@@ -218,11 +218,17 @@ def t_announcement(s):
 {p(t, extra="flex:1")}
 </div>''' for i, t in enumerate(s["items"], 1))
     main = "<br>".join(esc(x) for x in b["main_lines"])
+    msg = b.get("message", "")
+    msg_style = "font-size:40px;font-weight:700;line-height:1.55;color:#F2F1FD"
+    # 写真があるときは一言を写真の下（y=846）に固定して重なりを防ぐ（FIX版の配置）
+    msg_flow = f'<p style="{msg_style}">{esc(msg)}</p>' if msg and not b.get("photo") else ""
+    msg_pinned = (f'<p style="position:absolute;left:152px;top:830px;width:800px;{msg_style}">{esc(msg)}</p>'
+                  if msg and b.get("photo") else "")
     return f'''<div style="flex:1;display:flex;gap:40px">
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;background:{ACC};border-radius:16px;padding:56px">
 <p style="font-size:40px;font-weight:700;color:#E6E4FA">{esc(b['eyebrow'])}</p>
 <p style="font-size:80px;font-weight:700;line-height:1.3;color:#FFFFFF">{main}</p>
-{f'<p style="font-size:40px;font-weight:700;line-height:1.55;color:#F2F1FD">{esc(b["message"])}</p>' if b.get('message') else ''}
+{msg_flow}
 </div>
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px">
 {h3(s['list_heading'])}
@@ -230,7 +236,8 @@ def t_announcement(s):
 {sticker}
 </div>
 </div>
-{photo}'''
+{photo}
+{msg_pinned}'''
 
 
 TYPES = {"kpi_chart": t_kpi_chart, "flow3": t_flow3, "before_after_kpi": t_before_after_kpi,

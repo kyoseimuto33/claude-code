@@ -20,12 +20,14 @@ TITLE_MIN = 20       # これより短いタイトルは抽象的すぎる可能
 BANNED_IN_TITLE = ["暫定", "について", "の報告", "活動内容"]
 BANNED_ANY = ["gradient"]
 LABEL_WORDS = ["論点", "根拠", "示唆", "意思決定"]  # 思考過程のラベルはスライドに出さない
+NO_NEXT_TYPES = {"kpi_chart", "grid4", "announcement", "cover"}  # FIX版で⇒行を持たない型
 
 
 def main():
     root = sys.argv[1]
     content = json.load(open(sys.argv[2], encoding="utf-8")) if len(sys.argv) > 2 else None
     errs, warns = [], []
+    types = {s["id"]: s["type"] for s in content.get("slides", [])} if content else {}
     files = sorted(glob.glob(os.path.join(root, "project", "slides", "*.html")))
     if not files:
         print("ERROR: slides not found under", root)
@@ -58,7 +60,7 @@ def main():
                     errs.append(f"{sid}: title contains '{w}' (結論を書く／暫定は※注記へ)")
             if not re.search(r"\d|見込み|完了|白紙|異動|達成|維持|改善|作った|できた", t):
                 warns.append(f"{sid}: title has no number/state — 抽象的すぎないか")
-            if "⇒" not in text:
+            if "⇒" not in text and types.get(sid) not in NO_NEXT_TYPES:
                 warns.append(f"{sid}: '⇒ 次のアクション' 行なし（次の打ち手・期日があるなら明示）")
         bodies = re.findall(r'<p style="font-size:(\d+)px;line-height:1.55;color:#1A1A22;font-weight:400', h)
         for px in map(int, bodies):
@@ -68,6 +70,11 @@ def main():
             warns.append(f"{sid}: 赤の強調が多い（1スライド2か所まで）")
     if content:
         for s in content.get("slides", []):
+            k = s.get("kpi")
+            if k and k.get("value"):
+                nums = re.findall(r"\d+", k["value"])
+                if nums and not any(n in s.get("title", "") for n in nums):
+                    warns.append(f"{s['id']}: タイトルとKPI（{k['value']}）の数値・指標がそろっていない（1枚1メッセージ）")
             if s["type"] != "cover" and not s.get("sources"):
                 warns.append(f"{s['id']}: content.json に sources（根拠のURL）がない")
     for e in errs:
