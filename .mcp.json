@@ -1,17 +1,8 @@
 {
   "mcpServers": {
     "playwright": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@playwright/mcp@latest",
-        "--headless",
-        "--isolated",
-        "--executable-path",
-        "/opt/pw-browsers/chromium",
-        "--proxy-server",
-        "${HTTPS_PROXY}"
-      ]
+      "command": "bash",
+      "args": ["tools/playwright-mcp.sh"]
     }
   }
 }
