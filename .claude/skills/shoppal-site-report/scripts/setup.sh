@@ -24,6 +24,7 @@ fi
 fc-list :lang=ja | grep -qi noto || apt-get install -y -q fonts-noto-cjk >/dev/null 2>&1 || true
 dpkg -s libreoffice-impress >/dev/null 2>&1 || apt-get install -y -q libreoffice-impress >/dev/null 2>&1 || true
 
-for v in SHOPPAL_ADMIN_USER SHOPPAL_ADMIN_PASS GOOGLE_SA_KEY_JSON; do
+echo "SHOPPAL_ADMIN_USER: ${SHOPPAL_ADMIN_USER:-cx@fulmo.co.jp (shared account)}"
+for v in SHOPPAL_ADMIN_PASS GOOGLE_SA_KEY_JSON; do
   [ -n "${!v:-}" ] && echo "$v: set" || echo "$v: MISSING (add it in the environment settings)"
 done

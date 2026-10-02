@@ -13,11 +13,12 @@ description: Shoppal（Fulmo）ECサイトの現状報告書（事業レポー�
 bash .claude/skills/shoppal-site-report/scripts/setup.sh
 ```
 
-ライブラリ、ブラウザの証明書、日本語フォント、LibreOfficeを入れ、必要な環境変数の有無を表示する。`MISSING` が出たら、セッション上部の環境メニュー →「Edit」で次を登録してもらう（値をチャットに貼らせない）。
+ライブラリ、ブラウザの証明書、日本語フォント、LibreOfficeを入れ、必要な環境変数の有無を表示する。`MISSING` が出たら、セッション上部の環境メニュー →「Edit」で次を登録してもらう（値をチャットに貼らせない。パスワードはスキルのファイルに書かない）。
 
 | 環境変数 | 内容 |
 |---|---|
-| `SHOPPAL_ADMIN_USER` / `SHOPPAL_ADMIN_PASS` | Shoppal管理画面のログイン |
+| `SHOPPAL_ADMIN_PASS` | Shoppal管理画面の共通アカウント `cx@fulmo.co.jp` のパスワード（社内で共有済みのもの） |
+| `SHOPPAL_ADMIN_USER` | 省略可。未設定なら共通アカウント `cx@fulmo.co.jp` でログインする |
 | `GOOGLE_SA_KEY_JSON` | GA4・Search Console用サービスアカウントのJSONキー |
 
 ネットワークの許可ドメインに `*.flumo-admin-server.com` が必要。Search Consoleで「not shared」と出たサイトは、そのプロパティにサービスアカウント（JSONの `client_email`）を「フル」で追加してもらう。

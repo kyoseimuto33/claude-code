@@ -1,8 +1,11 @@
 // Shared Playwright helpers for the Shoppal admin (https://<site>.flumo-admin-server.com).
-// Credentials come from SHOPPAL_ADMIN_USER / SHOPPAL_ADMIN_PASS; nothing is written to disk.
+// Logs in with the shared team account (cx@fulmo.co.jp unless SHOPPAL_ADMIN_USER overrides it).
+// The password comes only from SHOPPAL_ADMIN_PASS; nothing is written to disk.
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+
+const ADMIN_USER = process.env.SHOPPAL_ADMIN_USER || 'cx@fulmo.co.jp';
 
 function loadPlaywright() {
   try { return require('playwright'); } catch (_) { /* fall through to the npx cache */ }
@@ -18,8 +21,8 @@ function loadPlaywright() {
 
 async function openAdmin(url) {
   const { chromium } = loadPlaywright();
-  if (!process.env.SHOPPAL_ADMIN_USER || !process.env.SHOPPAL_ADMIN_PASS) {
-    throw new Error('SHOPPAL_ADMIN_USER / SHOPPAL_ADMIN_PASS are not set in the environment');
+  if (!process.env.SHOPPAL_ADMIN_PASS) {
+    throw new Error(`SHOPPAL_ADMIN_PASS (password for ${ADMIN_USER}) is not set in the environment`);
   }
   const browser = await chromium.launch({
     executablePath: fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined,
@@ -29,7 +32,7 @@ async function openAdmin(url) {
   const page = await (await browser.newContext()).newPage();
   await page.goto(url, { waitUntil: 'networkidle' });
   if (page.url().includes('/login')) {
-    await page.fill('#email', process.env.SHOPPAL_ADMIN_USER);
+    await page.fill('#email', ADMIN_USER);
     await page.fill('#password', process.env.SHOPPAL_ADMIN_PASS);
     await Promise.all([page.waitForLoadState('networkidle'), page.locator('button[type=submit], button').first().click()]);
     await page.waitForTimeout(3000);
