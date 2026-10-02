@@ -2,7 +2,7 @@
   "mcpServers": {
     "playwright": {
       "command": "bash",
-      "args": ["tools/playwright-mcp.sh"]
+      "args": [".claude/skills/shoppal-site-report/scripts/playwright-mcp.sh"]
     }
   }
 }
