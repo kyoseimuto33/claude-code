@@ -1,0 +1,68 @@
+{
+  "_comment": "claude.ai/code のルーティン（スケジュール実行）設定のエクスポート。2026-10-07 時点。シークレットは除去済み（.env 参照）。cron の時刻は特記なき場合 UTC。",
+  "routines": [
+    {
+      "name": "Weekly ai trend",
+      "local_id": "weekly-ai-trend",
+      "cloud_trigger_id": "trig_01UnK8ByUZAiWMSeMzGvd2RD",
+      "enabled": true,
+      "cron": "CRON_TZ=Asia/Tokyo 0 10 * * 1",
+      "schedule_ja": "毎週月曜 10:00 JST（クラウド側で数分の分散あり）",
+      "model": "（未指定＝既定モデル）",
+      "session": "毎回新規セッション",
+      "connectors": ["Slack", "Google_Drive", "Gmail", "Google_Calendar", "Ahrefs", "higgsfield", "Claude_Docs", "Claude_Code_Remote"],
+      "connectors_actually_used": ["Slack"],
+      "tools_used": ["WebSearch", "Write", "slack_send_message"],
+      "prompt_file": "prompts/weekly-ai-trend.md",
+      "secrets": [],
+      "local_notes": "mcp__cowork__present_files はローカルに存在しないため、プロンプトを『保存パスを表示』に置換済み。"
+    },
+    {
+      "name": "Weekly seo trend",
+      "local_id": "weekly-seo-trend",
+      "cloud_trigger_id": "trig_01MAn76nPYHUSSM1GsuCNkEU",
+      "enabled": true,
+      "cron": "CRON_TZ=Asia/Tokyo 0 10 * * 1",
+      "schedule_ja": "毎週月曜 10:00 JST（クラウド側で数分の分散あり）",
+      "model": "（未指定＝既定モデル）",
+      "session": "毎回新規セッション",
+      "connectors": ["Slack", "Google_Drive", "Gmail", "Google_Calendar", "Ahrefs", "higgsfield", "Claude_Docs", "Claude_Code_Remote"],
+      "connectors_actually_used": ["Slack"],
+      "tools_used": ["WebSearch", "Write", "slack_send_message"],
+      "prompt_file": "prompts/weekly-seo-trend.md",
+      "secrets": [],
+      "local_notes": "同上。"
+    },
+    {
+      "name": "archi-dog 人気商品ランキング 週次更新",
+      "local_id": "archi-dog-popular-ranking",
+      "cloud_trigger_id": "trig_011uRqb8bjftRkA17ShkWBZ5",
+      "enabled": true,
+      "cron": "7 17 * * 0",
+      "schedule_ja": "毎週月曜 02:07 JST（= 日曜 17:07 UTC）",
+      "model": "claude-sonnet-5",
+      "session": "毎回新規セッション",
+      "connectors": [],
+      "tools_used": ["Write", "Bash(python3)"],
+      "prompt_file": "prompts/archi-dog-popular-ranking.md",
+      "script_file": "scripts/popularity_score.py",
+      "secrets": ["SHOPIFY_READ_ORDERS_CLIENT_ID", "SHOPIFY_READ_ORDERS_CLIENT_SECRET", "SHOPIFY_WRITE_CLIENT_ID", "SHOPIFY_WRITE_CLIENT_SECRET"],
+      "local_notes": "AI判断不要の決定的処理。ローカルでは python3 で直接実行を推奨。"
+    },
+    {
+      "name": "SEO Pipeline - Monthly Auto",
+      "local_id": "seo-pipeline-monthly",
+      "cloud_trigger_id": "trig_01QKTm8fgDYCpHuobT1yRt8T",
+      "enabled": false,
+      "cron": "0 15 * * *",
+      "schedule_ja": "毎日 00:00 JST（= 15:00 UTC）。プロンプト側で毎月1〜13日のみ処理。※クラウドでは現在『無効』",
+      "model": "claude-sonnet-4-6",
+      "session": "毎回新規セッション",
+      "connectors": [],
+      "tools_used": ["Bash(curl, python3, date, sleep)"],
+      "prompt_file": "prompts/seo-pipeline-monthly.md",
+      "secrets": ["FLUMO_API_BASIC_AUTH"],
+      "local_notes": "PCがスリープしていると実行されない。最長5.5時間の長時間ジョブのため、ローカル化する場合は常時稼働マシン推奨。"
+    }
+  ]
+}

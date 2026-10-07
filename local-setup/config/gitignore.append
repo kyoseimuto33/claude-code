@@ -1,0 +1,6 @@
+
+# --- ローカル環境用（claude-local-setup から追加） ---
+.env
+.claude/settings.local.json
+outputs/
+routines/logs/

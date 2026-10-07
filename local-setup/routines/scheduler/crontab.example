@@ -1,0 +1,18 @@
+# ------------------------------------------------------------------
+# macOS / Linux 用 crontab 例（`crontab -e` で貼り付け）
+#   - CLAUDE_LOCAL を展開先フォルダの絶対パスに書き換えること
+#   - 時刻は PC のローカル時刻（日本時間の PC を想定）
+#   - PC がスリープ/電源オフの時刻は実行されない（クラウド版との最大の違い）
+#   - macOS で cron を使う場合、cron に「フルディスクアクセス」許可が必要なことがある
+# ------------------------------------------------------------------
+CLAUDE_LOCAL=/Users/YOURNAME/claude-local-setup
+
+# Weekly ai trend / Weekly seo trend: 毎週月曜 10:00
+0 10 * * 1  $CLAUDE_LOCAL/routines/run_routine.sh weekly-ai-trend  >/dev/null 2>&1
+10 10 * * 1 $CLAUDE_LOCAL/routines/run_routine.sh weekly-seo-trend >/dev/null 2>&1
+
+# archi-dog 人気商品ランキング: 毎週月曜 02:07（クラウド版と同時刻）
+7 2 * * 1   $CLAUDE_LOCAL/routines/run_routine.sh archi-dog-popular-ranking >/dev/null 2>&1
+
+# SEO自動パイプライン: 毎日 00:00（クラウドでは無効化中。使う場合のみコメント解除）
+# 0 0 * * *  $CLAUDE_LOCAL/routines/run_routine.sh seo-pipeline-monthly >/dev/null 2>&1
