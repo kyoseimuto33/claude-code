@@ -1,0 +1,110 @@
+{
+ "yomiyasu": {
+  "source": "https://github.com/nanaism/yomiyasu",
+  "path": "skills/yomiyasu",
+  "commit": "3979c750b5e1fe9892bd47bb354f0fb51d534ff2",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "grilling": {
+  "source": "https://github.com/mattpocock/skills",
+  "path": "skills/productivity/grilling",
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "design-lab": {
+  "source": "https://github.com/0xdesign/design-plugin",
+  "path": "design-and-refine/skills/design-lab",
+  "commit": "913a7ab2ac7e0f48eab77c93f2f5376150864b02",
+  "license": "MIT（plugin.json 記載）",
+  "installed": "2026-11-28",
+  "local_changes": "プラグイン基準のパス design-and-refine/templates/ をスキル内の templates/ に置換（1か所）し、templates を同梱。プラグインのフックとコマンドは入れていない"
+ },
+ "design-taste-frontend": {
+  "source": "https://github.com/Leonxlnx/taste-skill",
+  "path": "skills/taste-skill",
+  "commit": "952435f63acece7d2fcb4b4d3c1786c1c43603e0",
+  "license": "MIT",
+  "installed": "2026-11-28",
+  "note": "スキル内に Stop フック（scripts/gate.mjs による仕上がり検査）を持つ。スキル使用中だけ動く"
+ },
+ "hallmark": {
+  "source": "https://github.com/Nutlope/hallmark",
+  "path": "skills/hallmark",
+  "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-conceptual-model": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-conceptual-model",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-domain": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-domain",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-interaction-flow": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-interaction-flow",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-intro": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-intro",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-observed-behaviour": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-observed-behaviour",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-orient": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-orient",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-product-strategy": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-product-strategy",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-surface": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-surface",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "layers-user-needs": {
+  "source": "https://github.com/jamiemill/layers-skills",
+  "path": "skills/layers-user-needs",
+  "commit": "a201dc8c2011940b9d93934abb0f40c3b226c7ca",
+  "license": "MIT",
+  "installed": "2026-11-28"
+ },
+ "mengto-skills": {
+  "source": "https://github.com/MengTo/Skills",
+  "path": "agent-skills",
+  "commit": "f8c8cb84e456ab9ee2b8f9af902d3307684b2499",
+  "license": "MIT",
+  "installed": "2026-11-28",
+  "local_changes": "本体（約200MB・238件）は同梱せず、索引 references/index.md と取り出し手順の SKILL.md（自作）だけを置く"
+ }
+}

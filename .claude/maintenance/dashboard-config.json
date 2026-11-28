@@ -7,9 +7,7 @@
     "rules",
     "runs"
   ],
-  "current_asset": "f875303540da21891e08377a9884320c",
-  "note": "各データセットは dashboard.json（アセット）を読み、ページ側のローダーがキーごとに行へ分ける。ページ本体は files/index.html",
-  "stale_assets": [
-    "d839a5275d4994c5038a1dd51da3950a"
-  ]
+  "current_asset": "46e7c7afeeb6a1110e8e8604fac1daf2",
+  "note": "各データセットは dashboard.json（アセット）を読み、ページ側のローダーがキーごとに行へ分ける。ページ本体は files/index.html。載せるのは自作スキルだけ",
+  "stale_assets": []
 }

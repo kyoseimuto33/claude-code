@@ -5,7 +5,7 @@
   "created": "2026-11-28",
   "updated": "2026-11-28",
   "model_reviewed": "claude-opus-5-5",
-  "note": "初回メンテナンスで13セッションの観測から作成（fb-020）"
+  "note": "初回メンテナンスで13セッションの観測から作成（fb-020）。ユーザーの指示で、外部向け文面の仕上げに yomiyasu を使う手順を追加"
  },
  "dispute-evidence-ja": {
   "category": "法務・紛争対応",

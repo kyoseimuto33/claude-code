@@ -2,8 +2,9 @@
 """スキル運用ダッシュボード用の dashboard.json を作る。
 
 入力: .claude/skills/*/SKILL.md, CLAUDE.md, および同じフォルダの
-external-skills.json, skills-meta.json, usage-log.jsonl, feedback.json, runs.json
+skills-meta.json, vendor-skills.json, usage-log.jsonl, feedback.json, runs.json
 出力: dashboard.json（skills / usage_weekly / candidates / rules / runs）
+載せるのは自作スキルだけ。vendor-skills.json に載っている導入スキルと、Anthropic・プラグインのスキルは除く。
 """
 import datetime as dt
 import json
@@ -54,13 +55,15 @@ def first_sentence(text, limit=90):
     return text if len(text) <= limit else text[: limit - 1] + "…"
 
 
-def own_skills(meta):
+def own_skills(meta, vendored):
     rows = []
     if not SKILLS_DIR.exists():
         return rows
     for skill_md in sorted(SKILLS_DIR.glob("*/SKILL.md")):
         fm = frontmatter(skill_md.read_text(encoding="utf-8"))
         name = str(fm.get("name") or skill_md.parent.name)
+        if name in vendored or skill_md.parent.name in vendored:
+            continue
         m = meta.get(name, {})
         rows.append({
             "id": name,
@@ -82,7 +85,7 @@ def week_start(d):
 def main():
     today = dt.datetime.now(JST).date()
     meta = load("skills-meta.json", {})
-    external = load("external-skills.json", {}).get("skills", [])
+    vendored = set(load("vendor-skills.json", {}))
     feedback = load("feedback.json", [])
     runs = load("runs.json", [])
 
@@ -100,31 +103,18 @@ def main():
             except (ValueError, KeyError):
                 continue
 
-    skills = own_skills(meta)
-    for e in external:
-        skills.append({
-            "id": e["id"], "name": e.get("name") or e["id"].split(":")[-1],
-            "source": e.get("source", "外部"), "category": e.get("category", ""),
-            "summary": e.get("summary", ""), "status": "外部提供",
-            "updated": None, "model_reviewed": None,
-        })
+    skills = own_skills(meta, vendored)
+    own_ids = {s["id"] for s in skills}
 
-    # 利用記録のスキル名を一覧のIDに寄せる（"/docx" や短い名前でも拾う）
-    by_id = {s["id"]: s for s in skills}
-    by_short = {}
-    for s in skills:
-        by_short.setdefault(s["name"], s["id"])
-
+    # 自作スキルの利用だけを数える（"/名前" や "project:名前" の形も拾う）
     def resolve(name):
         name = str(name).lstrip("/").strip()
-        if name in by_id:
-            return name
-        return by_short.get(name.split(":")[-1], name)
+        return name if name in own_ids else name.split(":")[-1]
 
+    uses = [u for u in uses if resolve(u.get("skill", "")) in own_ids]
     total, last30, last90, last_used = Counter(), Counter(), Counter(), {}
     for u in uses:
         sid = resolve(u.get("skill", ""))
-        u["_id"] = sid
         total[sid] += 1
         age = (today - u["_date"]).days
         if age < 30:
@@ -134,13 +124,6 @@ def main():
         if sid not in last_used or u["_date"] > last_used[sid]:
             last_used[sid] = u["_date"]
 
-    # ログにあるが一覧にないスキル（廃止・未登録）も表示する
-    for sid in total:
-        if sid not in by_id:
-            skills.append({"id": sid, "name": sid.split(":")[-1], "source": "一覧外",
-                           "category": "", "summary": "一覧にないスキル（廃止・未登録の可能性）",
-                           "status": "要確認", "updated": None, "model_reviewed": None})
-
     for s in skills:
         s["uses_30d"] = last30.get(s["id"], 0)
         s["uses_90d"] = last90.get(s["id"], 0)
@@ -148,8 +131,7 @@ def main():
         lu = last_used.get(s["id"])
         s["last_used"] = lu.isoformat() if lu else None
 
-    order = {"自作": 0}
-    skills.sort(key=lambda s: (order.get(s["source"], 1), -s["uses_30d"], -s["uses_total"], s["id"]))
+    skills.sort(key=lambda s: (-s["uses_30d"], -s["uses_total"], s["id"]))
 
     this_week = week_start(today)
     weeks = [this_week - dt.timedelta(weeks=i) for i in range(WEEKS - 1, -1, -1)]
