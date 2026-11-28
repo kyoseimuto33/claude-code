@@ -1,6 +1,118 @@
 {
- "generated_at": "2026-11-28T18:14+09:00",
+ "generated_at": "2026-11-28T18:24+09:00",
  "skills": [
+  {
+   "id": "business-reply-ja",
+   "name": "business-reply-ja",
+   "source": "自作",
+   "category": "文面作成",
+   "summary": "顧客・取引先・社内他部署・外部専門家に送る日本語の文面（LINE、メール、Slack、管理画面メモ）を作る・直す。",
+   "status": "運用中",
+   "updated": "2026-11-28",
+   "model_reviewed": "claude-opus-5-5",
+   "uses_30d": 0,
+   "uses_90d": 0,
+   "uses_total": 0,
+   "last_used": null
+  },
+  {
+   "id": "dispute-evidence-ja",
+   "name": "dispute-evidence-ja",
+   "source": "自作",
+   "category": "法務・紛争対応",
+   "summary": "取引先との紛争・訴訟・クレームの対応で、相手の主張を社内記録と規約に照らして事実確認し、弁護士に共有する資料（事実整理メモ、エビデンスのPDF、業務履歴の集計、所見レポート）や契…",
+   "status": "運用中",
+   "updated": "2026-11-28",
+   "model_reviewed": "claude-opus-5-5",
+   "uses_30d": 0,
+   "uses_90d": 0,
+   "uses_total": 0,
+   "last_used": null
+  },
+  {
+   "id": "monthly-company-deck",
+   "name": "monthly-company-deck",
+   "source": "自作",
+   "category": "資料作成",
+   "summary": "部署の月次全社会・定例会の報告スライド（Googleスライドまたは PowerPoint）を前月の資料を踏襲して作る。",
+   "status": "運用中",
+   "updated": "2026-11-28",
+   "model_reviewed": "claude-opus-5-5",
+   "uses_30d": 0,
+   "uses_90d": 0,
+   "uses_total": 0,
+   "last_used": null
+  },
+  {
+   "id": "payment-reminder-list",
+   "name": "payment-reminder-list",
+   "source": "自作",
+   "category": "経理・回収",
+   "summary": "未入金の督促リスト（スプレッドシート）を入金管理シートから更新し、回収状況を集計して、社内への周知文や顧客への督促文を作る。",
+   "status": "運用中",
+   "updated": "2026-11-28",
+   "model_reviewed": "claude-opus-5-5",
+   "uses_30d": 0,
+   "uses_90d": 0,
+   "uses_total": 0,
+   "last_used": null
+  },
+  {
+   "id": "anthropic-skills:google-workspace",
+   "name": "google-workspace",
+   "source": "Anthropic（claude.ai）",
+   "category": "",
+   "summary": "Googleドキュメント・スプレッドシート・スライドの作成・変更",
+   "status": "外部提供",
+   "updated": null,
+   "model_reviewed": null,
+   "uses_30d": 4,
+   "uses_90d": 4,
+   "uses_total": 4,
+   "last_used": "2026-11-19"
+  },
+  {
+   "id": "anthropic-skills:docs",
+   "name": "docs",
+   "source": "Anthropic（claude.ai）",
+   "category": "",
+   "summary": "共有・コメントできる編集可能なドキュメント（Claude Docs）を作る",
+   "status": "外部提供",
+   "updated": null,
+   "model_reviewed": null,
+   "uses_30d": 2,
+   "uses_90d": 2,
+   "uses_total": 2,
+   "last_used": "2026-11-25"
+  },
+  {
+   "id": "anthropic-skills:docx",
+   "name": "docx",
+   "source": "Anthropic（claude.ai）",
+   "category": "",
+   "summary": "Word（.docx）文書の作成・編集・読み取り",
+   "status": "外部提供",
+   "updated": null,
+   "model_reviewed": null,
+   "uses_30d": 2,
+   "uses_90d": 2,
+   "uses_total": 2,
+   "last_used": "2026-11-21"
+  },
+  {
+   "id": "anthropic-skills:pptx",
+   "name": "pptx",
+   "source": "Anthropic（claude.ai）",
+   "category": "",
+   "summary": "PowerPointスライドの作成・編集",
+   "status": "外部提供",
+   "updated": null,
+   "model_reviewed": null,
+   "uses_30d": 2,
+   "uses_90d": 2,
+   "uses_total": 2,
+   "last_used": "2026-11-18"
+  },
   {
    "id": "advisorppc:getting-connected",
    "name": "getting-connected",
@@ -10,10 +122,52 @@
    "status": "外部提供",
    "updated": null,
    "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
+   "uses_30d": 1,
+   "uses_90d": 1,
+   "uses_total": 1,
+   "last_used": "2026-11-25"
+  },
+  {
+   "id": "anthropic-skills:chrome-browser",
+   "name": "chrome-browser",
+   "source": "Anthropic（claude.ai）",
+   "category": "",
+   "summary": "Claude in Chrome（拡張機能）でのブラウザ操作手順",
+   "status": "外部提供",
+   "updated": null,
+   "model_reviewed": null,
+   "uses_30d": 1,
+   "uses_90d": 1,
+   "uses_total": 1,
+   "last_used": "2026-11-19"
+  },
+  {
+   "id": "anthropic-skills:xlsx",
+   "name": "xlsx",
+   "source": "Anthropic（claude.ai）",
+   "category": "",
+   "summary": "Excel・CSVなど表計算ファイルの作成・編集・整形",
+   "status": "外部提供",
+   "updated": null,
+   "model_reviewed": null,
+   "uses_30d": 1,
+   "uses_90d": 1,
+   "uses_total": 1,
+   "last_used": "2026-11-19"
+  },
+  {
+   "id": "artifact-capabilities",
+   "name": "artifact-capabilities",
+   "source": "Claude Code組み込み",
+   "category": "",
+   "summary": "アーティファクトに保存・共有・データ連携などの機能を持たせる",
+   "status": "外部提供",
+   "updated": null,
+   "model_reviewed": null,
+   "uses_30d": 1,
+   "uses_90d": 1,
+   "uses_total": 1,
+   "last_used": "2026-11-28"
   },
   {
    "id": "advisorppc:google-ads-audit",
@@ -58,20 +212,6 @@
    "last_used": null
   },
   {
-   "id": "anthropic-skills:chrome-browser",
-   "name": "chrome-browser",
-   "source": "Anthropic（claude.ai）",
-   "category": "",
-   "summary": "Claude in Chrome（拡張機能）でのブラウザ操作手順",
-   "status": "外部提供",
-   "updated": null,
-   "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
-  },
-  {
    "id": "anthropic-skills:computer-use",
    "name": "computer-use",
    "source": "Anthropic（claude.ai）",
@@ -91,48 +231,6 @@
    "source": "Anthropic（claude.ai）",
    "category": "",
    "summary": "複数ソースを調べて比較・分析し、レポートにまとめる",
-   "status": "外部提供",
-   "updated": null,
-   "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
-  },
-  {
-   "id": "anthropic-skills:docs",
-   "name": "docs",
-   "source": "Anthropic（claude.ai）",
-   "category": "",
-   "summary": "共有・コメントできる編集可能なドキュメント（Claude Docs）を作る",
-   "status": "外部提供",
-   "updated": null,
-   "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
-  },
-  {
-   "id": "anthropic-skills:docx",
-   "name": "docx",
-   "source": "Anthropic（claude.ai）",
-   "category": "",
-   "summary": "Word（.docx）文書の作成・編集・読み取り",
-   "status": "外部提供",
-   "updated": null,
-   "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
-  },
-  {
-   "id": "anthropic-skills:google-workspace",
-   "name": "google-workspace",
-   "source": "Anthropic（claude.ai）",
-   "category": "",
-   "summary": "Googleドキュメント・スプレッドシート・スライドの作成・変更",
    "status": "外部提供",
    "updated": null,
    "model_reviewed": null,
@@ -184,53 +282,11 @@
    "last_used": null
   },
   {
-   "id": "anthropic-skills:pptx",
-   "name": "pptx",
-   "source": "Anthropic（claude.ai）",
-   "category": "",
-   "summary": "PowerPointスライドの作成・編集",
-   "status": "外部提供",
-   "updated": null,
-   "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
-  },
-  {
    "id": "anthropic-skills:skill-creator",
    "name": "skill-creator",
    "source": "Anthropic（claude.ai）",
    "category": "",
    "summary": "スキルの新規作成・改善・評価",
-   "status": "外部提供",
-   "updated": null,
-   "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
-  },
-  {
-   "id": "anthropic-skills:xlsx",
-   "name": "xlsx",
-   "source": "Anthropic（claude.ai）",
-   "category": "",
-   "summary": "Excel・CSVなど表計算ファイルの作成・編集・整形",
-   "status": "外部提供",
-   "updated": null,
-   "model_reviewed": null,
-   "uses_30d": 0,
-   "uses_90d": 0,
-   "uses_total": 0,
-   "last_used": null
-  },
-  {
-   "id": "artifact-capabilities",
-   "name": "artifact-capabilities",
-   "source": "Claude Code組み込み",
-   "category": "",
-   "summary": "アーティファクトに保存・共有・データ連携などの機能を持たせる",
    "status": "外部提供",
    "updated": null,
    "model_reviewed": null,
@@ -1216,13 +1272,13 @@
   },
   {
    "week": "2026-10-26",
-   "uses": 0,
-   "sessions": 0
+   "uses": 1,
+   "sessions": 1
   },
   {
    "week": "2026-11-02",
-   "uses": 0,
-   "sessions": 0
+   "uses": 2,
+   "sessions": 2
   },
   {
    "week": "2026-11-09",
@@ -1231,16 +1287,422 @@
   },
   {
    "week": "2026-11-16",
-   "uses": 0,
-   "sessions": 0
+   "uses": 8,
+   "sessions": 4
   },
   {
    "week": "2026-11-23",
-   "uses": 0,
-   "sessions": 0
+   "uses": 3,
+   "sessions": 3
   }
  ],
- "candidates": [],
- "rules": [],
- "runs": []
+ "candidates": [
+  {
+   "id": "fb-019",
+   "kind": "汎用ルール候補",
+   "summary": "作る前に資料の目的を確かめ、参考資料の簡素さに合わせる（頼まれていない要素を描かない）",
+   "task_type": "",
+   "count": 2,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-20"
+  },
+  {
+   "id": "fb-028",
+   "kind": "スキル候補",
+   "summary": "顧客の契約・対応履歴まとめは、急ぎの未対応→基本情報表→時系列→実績→確認事項→調べられなかった範囲",
+   "task_type": "顧客履歴の調査まとめ",
+   "count": 2,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-23"
+  },
+  {
+   "id": "fb-014",
+   "kind": "汎用ルール候補",
+   "summary": "方針の修正は同じ内容を含む他の成果物にも反映する",
+   "task_type": "",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-19"
+  },
+  {
+   "id": "fb-015",
+   "kind": "汎用ルール候補",
+   "summary": "「整理して」はファイルを作らず会話内に出す",
+   "task_type": "",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-10-31"
+  },
+  {
+   "id": "fb-016",
+   "kind": "汎用ルール候補",
+   "summary": "種別の違うデータも勝手にファイルを分けず1つにまとめ種別列で区別する。CSVはBOM付きUTF-8",
+   "task_type": "",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-13"
+  },
+  {
+   "id": "fb-017",
+   "kind": "汎用ルール候補",
+   "summary": "依頼文の誤変換は文脈から読み取り、解釈を一言添える",
+   "task_type": "",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-27"
+  },
+  {
+   "id": "fb-018",
+   "kind": "汎用ルール候補",
+   "summary": "一般的なWeb情報よりユーザー指定の自社マニュアルを優先する",
+   "task_type": "",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-28"
+  },
+  {
+   "id": "fb-024",
+   "kind": "スキル候補",
+   "summary": "取引先向け月次レポートのサマリー文（サイトごとに売上・主要トピック・今後）",
+   "task_type": "取引先向け月次レポート",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-16"
+  },
+  {
+   "id": "fb-025",
+   "kind": "スキル候補",
+   "summary": "契約変更覚書は過去の覚書を雛形にし、先方に渡す版は Word で社内メモなし・未記入箇所を網掛け",
+   "task_type": "契約書類の作成",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-21"
+  },
+  {
+   "id": "fb-026",
+   "kind": "スキル候補",
+   "summary": "業務フロー図は担当レーン形式で、責任範囲を色分けし境界を点線にする",
+   "task_type": "業務フローの図解",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-20"
+  },
+  {
+   "id": "fb-027",
+   "kind": "スキル候補",
+   "summary": "クライアント向け施策ロードマップは大項目→小タスクの2階層、各操作にマニュアルURL",
+   "task_type": "施策ロードマップ作成",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-28"
+  },
+  {
+   "id": "fb-029",
+   "kind": "スキル改修",
+   "summary": "Google Drive と Sheets のコネクタの認証アカウントが違うと書き込めない。作成前に確認し、だめなら Excel で渡すか聞く",
+   "task_type": "anthropic-skills:google-workspace",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-06"
+  },
+  {
+   "id": "fb-032",
+   "kind": "スキル改修",
+   "summary": "契約書類は共有ドキュメントでなく最初から docx で作る",
+   "task_type": "anthropic-skills:docs",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-11-21"
+  },
+  {
+   "id": "fb-033",
+   "kind": "スキル改修",
+   "summary": "月次報告用のチーム独自スキルがこのワークスペースに入っておらず、過去ログから探して使った",
+   "task_type": "cx-monthly-report",
+   "count": 1,
+   "status": "観測中",
+   "target": "",
+   "last_seen": "2026-10-31"
+  },
+  {
+   "id": "fb-020",
+   "kind": "スキル候補",
+   "summary": "顧客・取引先・社内・専門家向け文面の作成と添削の型",
+   "task_type": "業務文面の作成",
+   "count": 13,
+   "status": "反映済み",
+   "target": "business-reply-ja",
+   "last_seen": "2026-11-27"
+  },
+  {
+   "id": "fb-002",
+   "kind": "汎用ルール候補",
+   "summary": "人物・役職・契約前提・宛先名などは推測で埋めず、資料で確かめるか作る前に質問し、未確認は明示する",
+   "task_type": "",
+   "count": 7,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-021",
+   "kind": "スキル候補",
+   "summary": "紛争・訴訟対応の事実照合、弁護士共有資料とエビデンスの整理",
+   "task_type": "紛争対応の事実確認",
+   "count": 7,
+   "status": "反映済み",
+   "target": "dispute-evidence-ja",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-001",
+   "kind": "汎用ルール候補",
+   "summary": "報告・途中経過・質問・手順説明は日本語で書く（英語で返して言い直しを求められた）",
+   "task_type": "",
+   "count": 5,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-21"
+  },
+  {
+   "id": "fb-003",
+   "kind": "汎用ルール候補",
+   "summary": "外部向け文面は依頼文程度の分量に絞り、聞かれた論点だけに答える",
+   "task_type": "",
+   "count": 5,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-005",
+   "kind": "汎用ルール候補",
+   "summary": "既存資料・過去セッションの体裁やトーンを踏襲する",
+   "task_type": "",
+   "count": 5,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-011",
+   "kind": "汎用ルール候補",
+   "summary": "コネクタ未接続・ログインが必要な作業は着手前に伝え、接続後に確認して進める。代替手段を示し、何度も試さない",
+   "task_type": "",
+   "count": 5,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-007",
+   "kind": "汎用ルール候補",
+   "summary": "外部向け文書では不利な点を列挙せず、事実の範囲で自社の立場と前向きな材料を示す",
+   "task_type": "",
+   "count": 4,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-27"
+  },
+  {
+   "id": "fb-004",
+   "kind": "汎用ルール候補",
+   "summary": "依頼にない条件・論点・一文を足さない",
+   "task_type": "",
+   "count": 3,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-27"
+  },
+  {
+   "id": "fb-008",
+   "kind": "汎用ルール候補",
+   "summary": "宛先・埋め込むURL・転記する数値は使う前に実物を開いて照合する",
+   "task_type": "",
+   "count": 3,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-28"
+  },
+  {
+   "id": "fb-006",
+   "kind": "汎用ルール候補",
+   "summary": "ユーザーが手で変えた値・書式・レイアウトは意図的な変更として残す",
+   "task_type": "",
+   "count": 2,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-02"
+  },
+  {
+   "id": "fb-009",
+   "kind": "汎用ルール候補",
+   "summary": "文面は毎回そのまま送れる全文を出し、社内確認事項は外に分けて添える",
+   "task_type": "",
+   "count": 2,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-010",
+   "kind": "汎用ルール候補",
+   "summary": "Slack等で見つからないときは探した範囲を示し、早めに手がかりを尋ねる",
+   "task_type": "",
+   "count": 2,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-012",
+   "kind": "汎用ルール候補",
+   "summary": "契約条件などを含む成果物はリポジトリに置かず、保存先・アップロードは指示に従う",
+   "task_type": "",
+   "count": 2,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-25"
+  },
+  {
+   "id": "fb-013",
+   "kind": "汎用ルール候補",
+   "summary": "スプレッドシートの書き込み・数式変更後はスクリプトやレビューで検証する",
+   "task_type": "",
+   "count": 2,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-16"
+  },
+  {
+   "id": "fb-022",
+   "kind": "スキル候補",
+   "summary": "月次全社会資料は前月資料を踏襲し、指標内訳の根拠を揃える",
+   "task_type": "月次全社会資料",
+   "count": 2,
+   "status": "反映済み",
+   "target": "monthly-company-deck",
+   "last_seen": "2026-11-02"
+  },
+  {
+   "id": "fb-023",
+   "kind": "スキル候補",
+   "summary": "督促リストの入金判定・週次集計・検証のルール",
+   "task_type": "未入金督促リスト更新",
+   "count": 2,
+   "status": "反映済み",
+   "target": "payment-reminder-list",
+   "last_seen": "2026-11-16"
+  },
+  {
+   "id": "fb-030",
+   "kind": "スキル改修",
+   "summary": "共有ドライブが閲覧権限のみのときはローカル保存し差し替え手順を案内する",
+   "task_type": "anthropic-skills:google-workspace",
+   "count": 1,
+   "status": "反映済み",
+   "target": "dispute-evidence-ja",
+   "last_seen": "2026-11-19"
+  },
+  {
+   "id": "fb-031",
+   "kind": "スキル改修",
+   "summary": "ブラウザ拡張の接続を何度も試さない",
+   "task_type": "anthropic-skills:chrome-browser",
+   "count": 1,
+   "status": "反映済み",
+   "target": "CLAUDE.md",
+   "last_seen": "2026-11-19"
+  }
+ ],
+ "rules": [
+  {
+   "id": "r001",
+   "section": "出力の好み",
+   "rule": "完了報告・途中経過・質問・手順の説明はすべて日本語で書く。英語で返すと毎回言い直しを求められている。"
+  },
+  {
+   "id": "r002",
+   "section": "出力の好み",
+   "rule": "外部に出す文面（顧客・取引先・専門家宛て）は、依頼文と同程度の分量に絞り、聞かれた論点だけに答える。網羅より簡潔さを優先する。"
+  },
+  {
+   "id": "r003",
+   "section": "出力の好み",
+   "rule": "文面を頼まれたら、一部だけでなくそのまま送れる全文を毎回出す。社内で確認すべき点は文面の外に分けて添える。"
+  },
+  {
+   "id": "r004",
+   "section": "出力の好み",
+   "rule": "依頼にない条件・論点・一文（支払条件、「お電話で説明します」など）を足さない。必要そうなら文面の外で提案する。"
+  },
+  {
+   "id": "r005",
+   "section": "出力の好み",
+   "rule": "外部向けの文書では自社に不利な点を列挙せず、事実の範囲で自社の立場と前向きな材料を示す。自社が全面的に悪いとも、全面的に正しいとも読めない書き方にする。"
+  },
+  {
+   "id": "r006",
+   "section": "出力の好み",
+   "rule": "既存の資料・過去のセッションで使った体裁やトーンがあれば、それに合わせる。"
+  },
+  {
+   "id": "r007",
+   "section": "繰り返し指摘されている点",
+   "rule": "人物・役職・契約の前提・宛先名・期間などの事実は推測で埋めない。社内資料（Drive・Slack・規約）で確かめ、確かめられなければ作る前に質問するか「未確認」と明示して確認先を書く。"
+  },
+  {
+   "id": "r008",
+   "section": "繰り返し指摘されている点",
+   "rule": "宛先アドレス・埋め込むURL・転記する数値は、送る・使う前に実物を開いて照合する（どのサイト・どの期間の数字かも確かめる）。"
+  },
+  {
+   "id": "r009",
+   "section": "繰り返し指摘されている点",
+   "rule": "ユーザーが手で変えた値・書式・フィルタ・レイアウトは意図的な変更として残し、以降の作業もそれに揃える。"
+  },
+  {
+   "id": "r010",
+   "section": "繰り返し指摘されている点",
+   "rule": "Slack やドライブで探しものが見つからないときは、検索を広げ続けず、探した範囲と考えられる原因を示して手がかり（リンク・名前）を早めに尋ねる。"
+  },
+  {
+   "id": "r011",
+   "section": "定型タスクの共通ルール",
+   "rule": "コネクタ未接続・ログインが必要な作業は、着手前にそのことと接続手順を伝え、ユーザーに接続してもらってから確認して進める。つながらなければスクリーンショット等の代替手段を示す。同じ接続を何度も試さない。"
+  },
+  {
+   "id": "r012",
+   "section": "定型タスクの共通ルール",
+   "rule": "契約条件・個人情報・取引先の情報を含む成果物はリポジトリにコミットせず、作業フォルダ（scratchpad 等）に置く。クラウド環境には未追跡ファイルのコミット・push を求めるフックがあり、作業ツリーに置くと共有相手から見える状態になる。保存先やアップロードは指示に従う。"
+  },
+  {
+   "id": "r013",
+   "section": "定型タスクの共通ルール",
+   "rule": "スプレッドシートへの書き込みや数式の変更の後は、読み直し（必要ならスクリプトやレビュー用エージェント）で検証してから報告する。"
+  }
+ ],
+ "runs": [
+  {
+   "date": "2026-11-28",
+   "sessions_analyzed": 34,
+   "claude_md_changes": 13,
+   "skills_added": 4,
+   "skills_updated": 0,
+   "summary": "初回。直近30日の34セッションを分析し、CLAUDE.mdに汎用ルール13件を追加、業務文面・紛争対応・月次全社会資料・督促リストの4スキルを新設。観測中14件。"
+  }
+ ]
 }

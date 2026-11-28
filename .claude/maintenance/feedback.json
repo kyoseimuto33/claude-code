@@ -1,1 +1,735 @@
-[]
+[
+ {
+  "id": "fb-001",
+  "kind": "general",
+  "category": "文体",
+  "summary": "報告・途中経過・質問・手順説明は日本語で書く（英語で返して言い直しを求められた）",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUiE6E8qb5SKCvLpv64",
+    "date": "2026-11-19"
+   },
+   {
+    "session_id": "session_01JLMxUfdL8x57PsCb6h5KDq",
+    "date": "2026-10-31"
+   },
+   {
+    "session_id": "session_01HkosvvFKGXvR7Fg8ZnU3v3",
+    "date": "2026-10-14"
+   },
+   {
+    "session_id": "session_01JLMxUfyXKwPMhNo8necGQ7",
+    "date": "2026-11-21"
+   },
+   {
+    "session_id": "session_01JLMxUiU3dHtxQxaj8Ecp93",
+    "date": "2026-11-05"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-10-14"
+ },
+ {
+  "id": "fb-002",
+  "kind": "general",
+  "category": "事実確認",
+  "summary": "人物・役職・契約前提・宛先名などは推測で埋めず、資料で確かめるか作る前に質問し、未確認は明示する",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUibBVRhvLp9bmqezM6",
+    "date": "2026-11-06"
+   },
+   {
+    "session_id": "session_01JLMxUh5sbRzbbF5mR4Fcmq",
+    "date": "2026-11-23"
+   },
+   {
+    "session_id": "session_01JLMxUgBSBQT6SwfnGHeUma",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUi5H9tAzq8S27eQm8g",
+    "date": "2026-11-19"
+   },
+   {
+    "session_id": "session_01JLMxUhVkYammswi3PWC6tG",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUiZCS4Aerpgd1TQchw",
+    "date": "2026-11-04"
+   },
+   {
+    "session_id": "session_01JLMxUi4P5cKEBzoQDvuKum",
+    "date": "2026-11-18"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-04"
+ },
+ {
+  "id": "fb-003",
+  "kind": "general",
+  "category": "長さ",
+  "summary": "外部向け文面は依頼文程度の分量に絞り、聞かれた論点だけに答える",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUeyM8TUS5RiDVgBJL1",
+    "date": "2026-11-04"
+   },
+   {
+    "session_id": "session_01JLMxUgBSBQT6SwfnGHeUma",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUhVkYammswi3PWC6tG",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUh9W8DoUDFbK8ZxfE5",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUh5wZg4U5MkNg2Gkoy",
+    "date": "2026-11-19"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-04"
+ },
+ {
+  "id": "fb-004",
+  "kind": "general",
+  "category": "形式",
+  "summary": "依頼にない条件・論点・一文を足さない",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUg3e8eMuyaxcC5uwzo",
+    "date": "2026-11-27"
+   },
+   {
+    "session_id": "session_01JLMxUhVkYammswi3PWC6tG",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUeyM8TUS5RiDVgBJL1",
+    "date": "2026-11-04"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-04"
+ },
+ {
+  "id": "fb-005",
+  "kind": "general",
+  "category": "形式",
+  "summary": "既存資料・過去セッションの体裁やトーンを踏襲する",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUhBbeALiPmDgwpj8Hb",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUg286Y6YjrmHKW5iwa",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUiGmDap76wc3XYvE5w",
+    "date": "2026-11-02"
+   },
+   {
+    "session_id": "session_01JLMxUh9W8DoUDFbK8ZxfE5",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUgvJdjM6tBHqV6jNH9",
+    "date": "2026-11-16"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-02"
+ },
+ {
+  "id": "fb-006",
+  "kind": "general",
+  "category": "その他",
+  "summary": "ユーザーが手で変えた値・書式・レイアウトは意図的な変更として残す",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUiGmDap76wc3XYvE5w",
+    "date": "2026-11-02"
+   },
+   {
+    "session_id": "session_01HkosvvFKGXvR7Fg8ZnU3v3",
+    "date": "2026-10-14"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-10-14"
+ },
+ {
+  "id": "fb-007",
+  "kind": "general",
+  "category": "文体",
+  "summary": "外部向け文書では不利な点を列挙せず、事実の範囲で自社の立場と前向きな材料を示す",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUg286Y6YjrmHKW5iwa",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUi5H9tAzq8S27eQm8g",
+    "date": "2026-11-19"
+   },
+   {
+    "session_id": "session_01JLMxUiWee2gGXzioucjkTU",
+    "date": "2026-11-27"
+   },
+   {
+    "session_id": "session_01JLMxUhVkYammswi3PWC6tG",
+    "date": "2026-11-16"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-16"
+ },
+ {
+  "id": "fb-008",
+  "kind": "general",
+  "category": "事実確認",
+  "summary": "宛先・埋め込むURL・転記する数値は使う前に実物を開いて照合する",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUh7hyfgMDk9pRAUqdv",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUf8nAsyDWnTqsZ828W",
+    "date": "2026-11-28"
+   },
+   {
+    "session_id": "session_01JLMxUgvJdjM6tBHqV6jNH9",
+    "date": "2026-11-16"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-16"
+ },
+ {
+  "id": "fb-009",
+  "kind": "general",
+  "category": "形式",
+  "summary": "文面は毎回そのまま送れる全文を出し、社内確認事項は外に分けて添える",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUgvJdjM6tBHqV6jNH9",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUiGFxWtWHiJmtFiAFg",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-16"
+ },
+ {
+  "id": "fb-010",
+  "kind": "general",
+  "category": "確認手順",
+  "summary": "Slack等で見つからないときは探した範囲を示し、早めに手がかりを尋ねる",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUgBSBQT6SwfnGHeUma",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUf7T3Qc96c7JYa3DrP",
+    "date": "2026-11-24"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-24"
+ },
+ {
+  "id": "fb-011",
+  "kind": "general",
+  "category": "確認手順",
+  "summary": "コネクタ未接続・ログインが必要な作業は着手前に伝え、接続後に確認して進める。代替手段を示し、何度も試さない",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUj5a3pcRLm5mFXPNdf",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUi5H9tAzq8S27eQm8g",
+    "date": "2026-11-19"
+   },
+   {
+    "session_id": "session_01JLMxUg286Y6YjrmHKW5iwa",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01HkosvvFKGXvR7Fg8ZnU3v3",
+    "date": "2026-10-14"
+   },
+   {
+    "session_id": "session_01JLMxUibBVRhvLp9bmqezM6",
+    "date": "2026-11-06"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-10-14"
+ },
+ {
+  "id": "fb-012",
+  "kind": "general",
+  "category": "ファイル",
+  "summary": "契約条件などを含む成果物はリポジトリに置かず、保存先・アップロードは指示に従う",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUhBbeALiPmDgwpj8Hb",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUi5H9tAzq8S27eQm8g",
+    "date": "2026-11-19"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-19"
+ },
+ {
+  "id": "fb-013",
+  "kind": "general",
+  "category": "確認手順",
+  "summary": "スプレッドシートの書き込み・数式変更後はスクリプトやレビューで検証する",
+  "occurrences": [
+   {
+    "session_id": "session_01HkosvvFKGXvR7Fg8ZnU3v3",
+    "date": "2026-10-14"
+   },
+   {
+    "session_id": "session_01JLMxUh9W8DoUDFbK8ZxfE5",
+    "date": "2026-11-16"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-10-14"
+ },
+ {
+  "id": "fb-014",
+  "kind": "general",
+  "category": "その他",
+  "summary": "方針の修正は同じ内容を含む他の成果物にも反映する",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUi5H9tAzq8S27eQm8g",
+    "date": "2026-11-19"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-19"
+ },
+ {
+  "id": "fb-015",
+  "kind": "general",
+  "category": "ファイル",
+  "summary": "「整理して」はファイルを作らず会話内に出す",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUfdL8x57PsCb6h5KDq",
+    "date": "2026-10-31"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-10-31"
+ },
+ {
+  "id": "fb-016",
+  "kind": "general",
+  "category": "ファイル",
+  "summary": "種別の違うデータも勝手にファイルを分けず1つにまとめ種別列で区別する。CSVはBOM付きUTF-8",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUgYUitUH7mCc7Mfim8",
+    "date": "2026-11-13"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-13"
+ },
+ {
+  "id": "fb-017",
+  "kind": "general",
+  "category": "その他",
+  "summary": "依頼文の誤変換は文脈から読み取り、解釈を一言添える",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUg3e8eMuyaxcC5uwzo",
+    "date": "2026-11-27"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-27"
+ },
+ {
+  "id": "fb-018",
+  "kind": "general",
+  "category": "確認手順",
+  "summary": "一般的なWeb情報よりユーザー指定の自社マニュアルを優先する",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUf8nAsyDWnTqsZ828W",
+    "date": "2026-11-28"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-28"
+ },
+ {
+  "id": "fb-019",
+  "kind": "general",
+  "category": "形式",
+  "summary": "作る前に資料の目的を確かめ、参考資料の簡素さに合わせる（頼まれていない要素を描かない）",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUemxXdqvs7b1KTFt7R",
+    "date": "2026-11-20"
+   },
+   {
+    "session_id": "session_01JLMxUiU3dHtxQxaj8Ecp93",
+    "date": "2026-11-05"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-05"
+ },
+ {
+  "id": "fb-020",
+  "kind": "task-specific",
+  "category": "形式",
+  "summary": "顧客・取引先・社内・専門家向け文面の作成と添削の型",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUiWee2gGXzioucjkTU",
+    "date": "2026-11-27"
+   },
+   {
+    "session_id": "session_01JLMxUg3e8eMuyaxcC5uwzo",
+    "date": "2026-11-27"
+   },
+   {
+    "session_id": "session_01JLMxUiGFxWtWHiJmtFiAFg",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUhMTi5AbtugA9aZcAr",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUh5wZg4U5MkNg2Gkoy",
+    "date": "2026-11-19"
+   },
+   {
+    "session_id": "session_01JLMxUhVkYammswi3PWC6tG",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUh9W8DoUDFbK8ZxfE5",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUgvJdjM6tBHqV6jNH9",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUhjr75wTK4LkTzJ4Ve",
+    "date": "2026-11-24"
+   },
+   {
+    "session_id": "session_01JLMxUh7hyfgMDk9pRAUqdv",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUgBSBQT6SwfnGHeUma",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUhT92Y63BqxNhHKwME",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUeyM8TUS5RiDVgBJL1",
+    "date": "2026-11-04"
+   }
+  ],
+  "status": "promoted",
+  "target": "business-reply-ja",
+  "first_seen": "2026-11-04",
+  "task_type": "業務文面の作成"
+ },
+ {
+  "id": "fb-021",
+  "kind": "task-specific",
+  "category": "確認手順",
+  "summary": "紛争・訴訟対応の事実照合、弁護士共有資料とエビデンスの整理",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUiE6E8qb5SKCvLpv64",
+    "date": "2026-11-19"
+   },
+   {
+    "session_id": "session_01JLMxUi5H9tAzq8S27eQm8g",
+    "date": "2026-11-19"
+   },
+   {
+    "session_id": "session_01JLMxUiZCS4Aerpgd1TQchw",
+    "date": "2026-11-04"
+   },
+   {
+    "session_id": "session_01JLMxUg286Y6YjrmHKW5iwa",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUj5a3pcRLm5mFXPNdf",
+    "date": "2026-11-16"
+   },
+   {
+    "session_id": "session_01JLMxUhBbeALiPmDgwpj8Hb",
+    "date": "2026-11-25"
+   },
+   {
+    "session_id": "session_01JLMxUibBVRhvLp9bmqezM6",
+    "date": "2026-11-06"
+   }
+  ],
+  "status": "promoted",
+  "target": "dispute-evidence-ja",
+  "first_seen": "2026-11-04",
+  "task_type": "紛争対応の事実確認"
+ },
+ {
+  "id": "fb-022",
+  "kind": "task-specific",
+  "category": "形式",
+  "summary": "月次全社会資料は前月資料を踏襲し、指標内訳の根拠を揃える",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUiGmDap76wc3XYvE5w",
+    "date": "2026-11-02"
+   },
+   {
+    "session_id": "session_01JLMxUfdL8x57PsCb6h5KDq",
+    "date": "2026-10-31"
+   }
+  ],
+  "status": "promoted",
+  "target": "monthly-company-deck",
+  "first_seen": "2026-10-31",
+  "task_type": "月次全社会資料"
+ },
+ {
+  "id": "fb-023",
+  "kind": "task-specific",
+  "category": "確認手順",
+  "summary": "督促リストの入金判定・週次集計・検証のルール",
+  "occurrences": [
+   {
+    "session_id": "session_01HkosvvFKGXvR7Fg8ZnU3v3",
+    "date": "2026-10-14"
+   },
+   {
+    "session_id": "session_01JLMxUh9W8DoUDFbK8ZxfE5",
+    "date": "2026-11-16"
+   }
+  ],
+  "status": "promoted",
+  "target": "payment-reminder-list",
+  "first_seen": "2026-10-14",
+  "task_type": "未入金督促リスト更新"
+ },
+ {
+  "id": "fb-024",
+  "kind": "task-specific",
+  "category": "形式",
+  "summary": "取引先向け月次レポートのサマリー文（サイトごとに売上・主要トピック・今後）",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUgvJdjM6tBHqV6jNH9",
+    "date": "2026-11-16"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-16",
+  "task_type": "取引先向け月次レポート"
+ },
+ {
+  "id": "fb-025",
+  "kind": "task-specific",
+  "category": "形式",
+  "summary": "契約変更覚書は過去の覚書を雛形にし、先方に渡す版は Word で社内メモなし・未記入箇所を網掛け",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUfyXKwPMhNo8necGQ7",
+    "date": "2026-11-21"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-21",
+  "task_type": "契約書類の作成"
+ },
+ {
+  "id": "fb-026",
+  "kind": "task-specific",
+  "category": "形式",
+  "summary": "業務フロー図は担当レーン形式で、責任範囲を色分けし境界を点線にする",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUemxXdqvs7b1KTFt7R",
+    "date": "2026-11-20"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-20",
+  "task_type": "業務フローの図解"
+ },
+ {
+  "id": "fb-027",
+  "kind": "task-specific",
+  "category": "形式",
+  "summary": "クライアント向け施策ロードマップは大項目→小タスクの2階層、各操作にマニュアルURL",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUf8nAsyDWnTqsZ828W",
+    "date": "2026-11-28"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-28",
+  "task_type": "施策ロードマップ作成"
+ },
+ {
+  "id": "fb-028",
+  "kind": "task-specific",
+  "category": "形式",
+  "summary": "顧客の契約・対応履歴まとめは、急ぎの未対応→基本情報表→時系列→実績→確認事項→調べられなかった範囲",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUh5sbRzbbF5mR4Fcmq",
+    "date": "2026-11-23"
+   },
+   {
+    "session_id": "session_01JLMxUfjbBcThxqwKxvrUjG",
+    "date": "2026-11-16"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-16",
+  "task_type": "顧客履歴の調査まとめ"
+ },
+ {
+  "id": "fb-029",
+  "kind": "skill-fix",
+  "category": "ファイル",
+  "summary": "Google Drive と Sheets のコネクタの認証アカウントが違うと書き込めない。作成前に確認し、だめなら Excel で渡すか聞く",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUibBVRhvLp9bmqezM6",
+    "date": "2026-11-06"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-06",
+  "skill": "anthropic-skills:google-workspace"
+ },
+ {
+  "id": "fb-030",
+  "kind": "skill-fix",
+  "category": "ファイル",
+  "summary": "共有ドライブが閲覧権限のみのときはローカル保存し差し替え手順を案内する",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUiE6E8qb5SKCvLpv64",
+    "date": "2026-11-19"
+   }
+  ],
+  "status": "promoted",
+  "target": "dispute-evidence-ja",
+  "first_seen": "2026-11-19",
+  "skill": "anthropic-skills:google-workspace"
+ },
+ {
+  "id": "fb-031",
+  "kind": "skill-fix",
+  "category": "確認手順",
+  "summary": "ブラウザ拡張の接続を何度も試さない",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUi5H9tAzq8S27eQm8g",
+    "date": "2026-11-19"
+   }
+  ],
+  "status": "promoted",
+  "target": "CLAUDE.md",
+  "first_seen": "2026-11-19",
+  "skill": "anthropic-skills:chrome-browser"
+ },
+ {
+  "id": "fb-032",
+  "kind": "skill-fix",
+  "category": "ファイル",
+  "summary": "契約書類は共有ドキュメントでなく最初から docx で作る",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUfyXKwPMhNo8necGQ7",
+    "date": "2026-11-21"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-11-21",
+  "skill": "anthropic-skills:docs"
+ },
+ {
+  "id": "fb-033",
+  "kind": "skill-fix",
+  "category": "その他",
+  "summary": "月次報告用のチーム独自スキルがこのワークスペースに入っておらず、過去ログから探して使った",
+  "occurrences": [
+   {
+    "session_id": "session_01JLMxUfdL8x57PsCb6h5KDq",
+    "date": "2026-10-31"
+   }
+  ],
+  "status": "observing",
+  "target": "",
+  "first_seen": "2026-10-31",
+  "skill": "cx-monthly-report"
+ }
+]

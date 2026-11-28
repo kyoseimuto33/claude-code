@@ -1,1 +1,34 @@
-{}
+{
+ "business-reply-ja": {
+  "category": "文面作成",
+  "status": "運用中",
+  "created": "2026-11-28",
+  "updated": "2026-11-28",
+  "model_reviewed": "claude-opus-5-5",
+  "note": "初回メンテナンスで13セッションの観測から作成（fb-020）"
+ },
+ "dispute-evidence-ja": {
+  "category": "法務・紛争対応",
+  "status": "運用中",
+  "created": "2026-11-28",
+  "updated": "2026-11-28",
+  "model_reviewed": "claude-opus-5-5",
+  "note": "初回メンテナンスで7セッションの観測から作成（fb-021, fb-030）"
+ },
+ "monthly-company-deck": {
+  "category": "資料作成",
+  "status": "運用中",
+  "created": "2026-11-28",
+  "updated": "2026-11-28",
+  "model_reviewed": "claude-opus-5-5",
+  "note": "初回メンテナンスで2セッションの観測から作成（fb-022）"
+ },
+ "payment-reminder-list": {
+  "category": "経理・回収",
+  "status": "運用中",
+  "created": "2026-11-28",
+  "updated": "2026-11-28",
+  "model_reviewed": "claude-opus-5-5",
+  "note": "初回メンテナンスで2セッションの観測から作成（fb-023）"
+ }
+}
