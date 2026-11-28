@@ -13,6 +13,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -21,6 +22,7 @@ from pathlib import Path
 
 PRODUCTION = "https://api.cloudsign.jp"
 SANDBOX = "https://api-sandbox.cloudsign.jp"
+WAIT_SECONDS = 5  # 公式ガイド: 作成・更新の直後は反映まで数秒〜10秒待つことを推奨
 
 
 def request(method, url, token=None, form=None, files=None):
@@ -98,11 +100,13 @@ def main():
     if not doc_id:
         sys.exit(f"書類を作成できませんでした: {json.dumps(doc, ensure_ascii=False)[:300]}")
 
+    time.sleep(WAIT_SECONDS)
     request("POST", f"{base}/documents/{doc_id}/files", token, form={"name": pdf.name},
             files={"uploadfile": (pdf.name, pdf.read_bytes(), "application/pdf")})
     participant = {"email": a.email, "name": a.name}
     if a.organization:
         participant["organization"] = a.organization
+    time.sleep(WAIT_SECONDS)
     request("POST", f"{base}/documents/{doc_id}/participants", token, form=participant)
 
     print(f"\n下書きを作成しました（送信はしていません）。書類ID: {doc_id}")

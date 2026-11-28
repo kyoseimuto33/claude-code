@@ -15,8 +15,10 @@
 ## 2. API で下書きを作る（使える環境の場合）
 
 前提:
-- クラウドサインの Web API のクライアントID が、環境変数 `CLOUDSIGN_CLIENT_ID` に設定されている。値はチャットに貼らせず、リポジトリにも書かない。
-- `api.cloudsign.jp`（試験用は `api-sandbox.cloudsign.jp`）に接続できる。クラウド環境の既定のネットワーク設定では接続できない。
+- クラウドサインの管理画面で Web API が「利用する」になっている（https://www.cloudsign.jp/team/webapi 、スタンダードプラン以上）。
+- 担当者本人のクライアントID が、環境変数 `CLOUDSIGN_CLIENT_ID` に設定されている。クライアントID は利用者ごとに発行され（https://www.cloudsign.jp/api/clients 。発行ボタンがなければ管理者に依頼）、作られる下書きはその人の書類になる。値はチャットに貼らせず、リポジトリにも書かない。
+- `api.cloudsign.jp`（試験用は `api-sandbox.cloudsign.jp`）に接続できる。クラウドの場合は環境「claude-code (CloudSign)」を選んで開始したセッションで接続できる（既定の Default 環境では接続できない）。手元のPCではふつう接続できる。
+- 試験用環境（サンドボックス）は申込みが必要で、クライアントID も別（https://sandbox.cloudsign.jp/api/clients）。
 
 手順:
 1. まず確認だけ: `python3 scripts/cloudsign_prepare.py --pdf <最終版.pdf> --title "<書類名>" --name "<氏名>" --email "<メール>" --organization "<会社名>"`。API は呼ばれず、送る内容が表示される。
@@ -24,8 +26,8 @@
 3. 本番で下書きを作る: `--execute` を付けて実行する。書類の作成、PDF の添付、宛先の追加まで行い、送信はしない。
 4. 表示された書類ID を報告し、クラウドサインの画面の下書き一覧で、ユーザーに内容（書類・宛先・押印欄）を確認してから送信するよう伝える。
 
-使うエンドポイント（公開されている複数のクライアント実装で確認。公式ドキュメントはこの環境から読めなかったため、試験用環境での確認を挟む）:
-- `POST /token`（フォーム `client_id`）→ `access_token`（Bearer、短時間で失効）
+使うエンドポイント（公式の「クラウドサイン Web API 利用ガイド」 https://help.cloudsign.jp/ja/articles/2681259 の「典型的な流れ 5.1」と同じ。ファイル添付の項目名 `name`・`uploadfile` は公開されているクライアント実装によるもので、仕様書では未確認のため、初回は試験用環境で確かめる。作成・更新の直後は数秒待ってから次を呼ぶ）:
+- `POST /token`（フォーム `client_id`）→ `access_token`（`Authorization: Bearer` で使う。有効期限1時間）
 - `POST /documents`（フォーム `title`、任意で `message`）→ 書類ID。作成直後は下書き
 - `POST /documents/{書類ID}/files`（マルチパート `name`、`uploadfile`）→ PDF を添付
 - `POST /documents/{書類ID}/participants`（フォーム `email`、`name`、`organization`）→ 宛先を追加
