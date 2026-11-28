@@ -595,10 +595,11 @@
     "date": "2026-11-21"
    }
   ],
-  "status": "observing",
-  "target": "",
+  "status": "promoted",
+  "target": "skill:fulmo-contract-ja",
   "first_seen": "2026-11-21",
-  "task_type": "契約書類の作成"
+  "task_type": "契約書類の作成",
+  "note": "2026-11-28 ユーザーの依頼で作成した fulmo-contract-ja に取り込み"
  },
  {
   "id": "fb-026",
@@ -711,10 +712,11 @@
     "date": "2026-11-21"
    }
   ],
-  "status": "observing",
-  "target": "",
+  "status": "promoted",
+  "target": "skill:fulmo-contract-ja",
   "first_seen": "2026-11-21",
-  "skill": "anthropic-skills:docs"
+  "skill": "anthropic-skills:docs",
+  "note": "2026-11-28 ユーザーの依頼で作成した fulmo-contract-ja に取り込み"
  },
  {
   "id": "fb-033",

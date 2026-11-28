@@ -30,5 +30,13 @@
   "updated": "2026-11-28",
   "model_reviewed": "claude-opus-5-5",
   "note": "初回メンテナンスで2セッションの観測から作成（fb-023）"
+ },
+ "fulmo-contract-ja": {
+  "category": "法務・契約書作成",
+  "status": "運用中",
+  "created": "2026-11-28",
+  "updated": "2026-11-28",
+  "model_reviewed": "claude-opus-5-5",
+  "note": "ユーザーの依頼で作成。過去の契約書作成・紛争対応セッション、Slack の手塚さんの方針、Drive の雛形をもとに構成（fb-025, fb-032 を取り込み）"
  }
 }

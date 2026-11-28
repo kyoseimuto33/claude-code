@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-28T18:35+09:00",
+ "generated_at": "2026-11-28T19:01+09:00",
  "skills": [
   {
    "id": "business-reply-ja",
@@ -21,6 +21,20 @@
    "source": "自作",
    "category": "法務・紛争対応",
    "summary": "取引先との紛争・訴訟・クレームの対応で、相手の主張を社内記録と規約に照らして事実確認し、弁護士に共有する資料（事実整理メモ、エビデンスのPDF、業務履歴の集計、所見レポート）や契…",
+   "status": "運用中",
+   "updated": "2026-11-28",
+   "model_reviewed": "claude-opus-5-5",
+   "uses_30d": 0,
+   "uses_90d": 0,
+   "uses_total": 0,
+   "last_used": null
+  },
+  {
+   "id": "fulmo-contract-ja",
+   "name": "fulmo-contract-ja",
+   "source": "自作",
+   "category": "法務・契約書作成",
+   "summary": "株式会社Fulmo が当事者になる契約書面（変更覚書、契約期間・無償延長の覚書、解約合意書、精算・和解の合意書、利用申込書、業務委託契約、販売代理契約、事業譲渡契約、研修契約など…",
    "status": "運用中",
    "updated": "2026-11-28",
    "model_reviewed": "claude-opus-5-5",
@@ -202,16 +216,6 @@
    "last_seen": "2026-11-16"
   },
   {
-   "id": "fb-025",
-   "kind": "スキル候補",
-   "summary": "契約変更覚書は過去の覚書を雛形にし、先方に渡す版は Word で社内メモなし・未記入箇所を網掛け",
-   "task_type": "契約書類の作成",
-   "count": 1,
-   "status": "観測中",
-   "target": "",
-   "last_seen": "2026-11-21"
-  },
-  {
    "id": "fb-026",
    "kind": "スキル候補",
    "summary": "業務フロー図は担当レーン形式で、責任範囲を色分けし境界を点線にする",
@@ -240,16 +244,6 @@
    "status": "観測中",
    "target": "",
    "last_seen": "2026-11-06"
-  },
-  {
-   "id": "fb-032",
-   "kind": "スキル改修",
-   "summary": "契約書類は共有ドキュメントでなく最初から docx で作る",
-   "task_type": "anthropic-skills:docs",
-   "count": 1,
-   "status": "観測中",
-   "target": "",
-   "last_seen": "2026-11-21"
   },
   {
    "id": "fb-033",
@@ -432,6 +426,16 @@
    "last_seen": "2026-11-16"
   },
   {
+   "id": "fb-025",
+   "kind": "スキル候補",
+   "summary": "契約変更覚書は過去の覚書を雛形にし、先方に渡す版は Word で社内メモなし・未記入箇所を網掛け",
+   "task_type": "契約書類の作成",
+   "count": 1,
+   "status": "反映済み",
+   "target": "skill:fulmo-contract-ja",
+   "last_seen": "2026-11-21"
+  },
+  {
    "id": "fb-030",
    "kind": "スキル改修",
    "summary": "共有ドライブが閲覧権限のみのときはローカル保存し差し替え手順を案内する",
@@ -450,6 +454,16 @@
    "status": "反映済み",
    "target": "CLAUDE.md",
    "last_seen": "2026-11-19"
+  },
+  {
+   "id": "fb-032",
+   "kind": "スキル改修",
+   "summary": "契約書類は共有ドキュメントでなく最初から docx で作る",
+   "task_type": "anthropic-skills:docs",
+   "count": 1,
+   "status": "反映済み",
+   "target": "skill:fulmo-contract-ja",
+   "last_seen": "2026-11-21"
   }
  ],
  "rules": [
@@ -531,10 +545,15 @@
   {
    "id": "r016",
    "section": "スキルの使い分け",
-   "rule": "設計やコードを書く作業では、grilling を積極的に使い、着手前に決めることを質問で詰める。ユーザーが不要と言ったときは省く。"
+   "rule": "Fulmo が当事者の契約書・覚書・合意書を作るときは fulmo-contract-ja を使う（既存契約の確認、テンプレートと過去事例の踏襲、手塚さんへのレビュー依頼、クラウドサイン送付の準備まで）。"
   },
   {
    "id": "r017",
+   "section": "スキルの使い分け",
+   "rule": "設計やコードを書く作業では、grilling を積極的に使い、着手前に決めることを質問で詰める。ユーザーが不要と言ったときは省く。"
+  },
+  {
+   "id": "r018",
    "section": "スキルの使い分け",
    "rule": "画面やWebページのデザインは、作業に合うものを選んで使う: 新規のページやサイトは hallmark か design-taste-frontend、複数案を比べて決めたいときは design-lab、プロダクトの構造や要件から考えるときは layers-intro から始める layers-* 一式、3D・イラスト・動画・ゲーム表現や特定の見た目の型は mengto-skills の索引。"
   }
