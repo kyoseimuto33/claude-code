@@ -1,0 +1,6 @@
+{
+  "url": "https://claude.ai/artifact/WHDcUFcWPCyDaGCRrQTsot",
+  "datasets": ["skills", "usage_weekly", "candidates", "rules", "runs"],
+  "current_asset": "d839a5275d4994c5038a1dd51da3950a",
+  "note": "各データセットは dashboard.json（アセット）を読み、ページ側のローダーがキーごとに行へ分ける。ページ本体は files/index.html"
+}
